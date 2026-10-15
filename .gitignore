@@ -1,0 +1,37 @@
+# Local credentials and configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+service-account*.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# JavaScript
+node_modules/
+dist/
+coverage/
+
+# Data, models and private pilot records
+/data/
+/models/
+/checkpoints/
+/pilot-private/
+*.pt
+*.pth
+*.safetensors
+
+# Local tools and temporary files
+.vscode/
+.idea/
+*.log
+~$*
+.DS_Store
+Thumbs.db
