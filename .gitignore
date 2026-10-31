@@ -29,6 +29,9 @@ coverage/
 *.safetensors
 
 # Local tools and temporary files
+/tmp/
+**/bin/
+**/obj/
 .vscode/
 .idea/
 *.log
