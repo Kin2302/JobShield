@@ -1,0 +1,284 @@
+{
+  "phobert-v3-typeA": {
+    "model_name": "phobert-v3-typeA",
+    "model_type": "transformer_typeA",
+    "cold_load_sec": 0.565,
+    "vncorenlp_load_sec": 0.271,
+    "peak_rss_mb": 959.2,
+    "overall": {
+      "n": 25,
+      "mean_ms": 656.51,
+      "p50_ms": 602.15,
+      "p95_ms": 1925.41
+    },
+    "by_length": {
+      "short": {
+        "n": 10,
+        "mean_ms": 141.57,
+        "p50_ms": 136.07,
+        "p95_ms": 274.86
+      },
+      "medium": {
+        "n": 8,
+        "mean_ms": 617.86,
+        "p50_ms": 685.3,
+        "p95_ms": 840.0
+      },
+      "long": {
+        "n": 7,
+        "mean_ms": 1436.3,
+        "p50_ms": 1569.78,
+        "p95_ms": 2225.78
+      }
+    },
+    "by_label": {
+      "not_detected": {
+        "n": 15,
+        "mean_ms": 757.47,
+        "p50_ms": 764.84,
+        "p95_ms": 1720.19
+      },
+      "suspicious": {
+        "n": 10,
+        "mean_ms": 505.06,
+        "p50_ms": 274.0,
+        "p95_ms": 1628.22
+      }
+    }
+  },
+  "phobert-v3-typeA-no-antishortcut": {
+    "model_name": "phobert-v3-typeA-no-antishortcut",
+    "model_type": "transformer_typeA",
+    "cold_load_sec": 0.544,
+    "vncorenlp_load_sec": 0.231,
+    "peak_rss_mb": 957.6,
+    "overall": {
+      "n": 25,
+      "mean_ms": 638.1,
+      "p50_ms": 558.08,
+      "p95_ms": 1815.28
+    },
+    "by_length": {
+      "short": {
+        "n": 10,
+        "mean_ms": 131.76,
+        "p50_ms": 128.65,
+        "p95_ms": 246.41
+      },
+      "medium": {
+        "n": 8,
+        "mean_ms": 579.29,
+        "p50_ms": 606.6,
+        "p95_ms": 823.47
+      },
+      "long": {
+        "n": 7,
+        "mean_ms": 1428.66,
+        "p50_ms": 1475.57,
+        "p95_ms": 2196.65
+      }
+    },
+    "by_label": {
+      "not_detected": {
+        "n": 15,
+        "mean_ms": 736.15,
+        "p50_ms": 741.03,
+        "p95_ms": 1715.61
+      },
+      "suspicious": {
+        "n": 10,
+        "mean_ms": 491.02,
+        "p50_ms": 244.86,
+        "p95_ms": 1658.41
+      }
+    }
+  },
+  "phobert-v3-typeB": {
+    "model_name": "phobert-v3-typeB",
+    "model_type": "transformer_typeB",
+    "cold_load_sec": 0.579,
+    "vncorenlp_load_sec": 0.209,
+    "peak_rss_mb": 1262.2,
+    "overall": {
+      "n": 25,
+      "mean_ms": 357.85,
+      "p50_ms": 182.8,
+      "p95_ms": 1022.12
+    },
+    "by_length": {
+      "short": {
+        "n": 10,
+        "mean_ms": 117.83,
+        "p50_ms": 90.23,
+        "p95_ms": 291.52
+      },
+      "medium": {
+        "n": 8,
+        "mean_ms": 384.14,
+        "p50_ms": 254.84,
+        "p95_ms": 898.41
+      },
+      "long": {
+        "n": 7,
+        "mean_ms": 670.71,
+        "p50_ms": 226.05,
+        "p95_ms": 2175.47
+      }
+    },
+    "by_label": {
+      "not_detected": {
+        "n": 15,
+        "mean_ms": 195.03,
+        "p50_ms": 160.83,
+        "p95_ms": 457.57
+      },
+      "suspicious": {
+        "n": 10,
+        "mean_ms": 602.08,
+        "p50_ms": 318.43,
+        "p95_ms": 1931.0
+      }
+    }
+  },
+  "xlmr-v3-typeA": {
+    "model_name": "xlmr-v3-typeA",
+    "model_type": "transformer_typeA",
+    "cold_load_sec": 0.612,
+    "vncorenlp_load_sec": 0.0,
+    "peak_rss_mb": 1125.4,
+    "overall": {
+      "n": 25,
+      "mean_ms": 733.29,
+      "p50_ms": 551.71,
+      "p95_ms": 2165.63
+    },
+    "by_length": {
+      "short": {
+        "n": 10,
+        "mean_ms": 151.56,
+        "p50_ms": 152.16,
+        "p95_ms": 303.15
+      },
+      "medium": {
+        "n": 8,
+        "mean_ms": 670.23,
+        "p50_ms": 631.04,
+        "p95_ms": 1245.17
+      },
+      "long": {
+        "n": 7,
+        "mean_ms": 1636.42,
+        "p50_ms": 1609.79,
+        "p95_ms": 2805.28
+      }
+    },
+    "by_label": {
+      "not_detected": {
+        "n": 15,
+        "mean_ms": 848.55,
+        "p50_ms": 786.7,
+        "p95_ms": 1989.74
+      },
+      "suspicious": {
+        "n": 10,
+        "mean_ms": 560.41,
+        "p50_ms": 268.36,
+        "p95_ms": 1972.59
+      }
+    }
+  },
+  "xlmr-v3-typeB": {
+    "model_name": "xlmr-v3-typeB",
+    "model_type": "transformer_typeB",
+    "cold_load_sec": 1.056,
+    "vncorenlp_load_sec": 0.0,
+    "peak_rss_mb": 1661.7,
+    "overall": {
+      "n": 25,
+      "mean_ms": 388.63,
+      "p50_ms": 174.23,
+      "p95_ms": 868.14
+    },
+    "by_length": {
+      "short": {
+        "n": 10,
+        "mean_ms": 111.76,
+        "p50_ms": 74.9,
+        "p95_ms": 298.43
+      },
+      "medium": {
+        "n": 8,
+        "mean_ms": 472.24,
+        "p50_ms": 349.93,
+        "p95_ms": 859.2
+      },
+      "long": {
+        "n": 7,
+        "mean_ms": 688.62,
+        "p50_ms": 203.17,
+        "p95_ms": 2383.07
+      }
+    },
+    "by_label": {
+      "not_detected": {
+        "n": 15,
+        "mean_ms": 231.34,
+        "p50_ms": 153.43,
+        "p95_ms": 839.07
+      },
+      "suspicious": {
+        "n": 10,
+        "mean_ms": 624.58,
+        "p50_ms": 309.96,
+        "p95_ms": 2052.63
+      }
+    }
+  },
+  "tfidf-v3": {
+    "model_name": "tfidf-v3",
+    "model_type": "tfidf_v3",
+    "cold_load_sec": 0.217,
+    "vncorenlp_load_sec": 0.0,
+    "peak_rss_mb": 375.8,
+    "overall": {
+      "n": 25,
+      "mean_ms": 1.62,
+      "p50_ms": 1.7,
+      "p95_ms": 3.03
+    },
+    "by_length": {
+      "short": {
+        "n": 10,
+        "mean_ms": 1.33,
+        "p50_ms": 1.16,
+        "p95_ms": 2.32
+      },
+      "medium": {
+        "n": 8,
+        "mean_ms": 2.13,
+        "p50_ms": 2.18,
+        "p95_ms": 3.28
+      },
+      "long": {
+        "n": 7,
+        "mean_ms": 1.46,
+        "p50_ms": 1.0,
+        "p95_ms": 2.86
+      }
+    },
+    "by_label": {
+      "not_detected": {
+        "n": 15,
+        "mean_ms": 1.17,
+        "p50_ms": 0.89,
+        "p95_ms": 2.65
+      },
+      "suspicious": {
+        "n": 10,
+        "mean_ms": 2.31,
+        "p50_ms": 2.19,
+        "p95_ms": 2.92
+      }
+    }
+  }
+}

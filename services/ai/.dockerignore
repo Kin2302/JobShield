@@ -1,0 +1,10 @@
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+phobert-v1/
+jobshield-phobert-v2-result/
+jobshield-phobert-v2-result.zip
+.env
+*.zip
+*.log

@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>jobshield-backend-development</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../JobShield.Application/JobShield.Application.csproj" />
+    <ProjectReference Include="../JobShield.Infrastructure/JobShield.Infrastructure.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,3340 @@
+{
+  "v2": {
+    "threshold": 0.45,
+    "checkpoint_sha256": "3aef1cf410745eaa771cfd850cd891bf9b72dcb9618e343447ed1981e613b95f",
+    "splits": {
+      "validation": {
+        "summary": {
+          "n": 41,
+          "label_correct": 40,
+          "exact": 17,
+          "missed": 0,
+          "false_alarms": 1
+        },
+        "cases": [
+          {
+            "id": "JS-D00017",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00021",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00022",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00062",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "C12",
+                "c1"
+              ],
+              [
+                "C12",
+                "c2"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "JS-D00070",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00085",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00093",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00102",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00123",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00178",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00182",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00192",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00201",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00224",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00341",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00433",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00475",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00524",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-SUP03-13",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "C11",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A02",
+                "c2"
+              ],
+              [
+                "A07",
+                "c1"
+              ],
+              [
+                "A07",
+                "c2"
+              ],
+              [
+                "A09",
+                "c1"
+              ],
+              [
+                "A09",
+                "c2"
+              ],
+              [
+                "C11",
+                "c1"
+              ],
+              [
+                "C11",
+                "c2"
+              ],
+              [
+                "C12",
+                "c1"
+              ],
+              [
+                "C12",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "W04-POST-15",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "A07",
+                "c1"
+              ],
+              [
+                "A09",
+                "c1"
+              ],
+              [
+                "C12",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR001",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": [
+              [
+                "A01",
+                "c3"
+              ],
+              [
+                "A02",
+                "c3"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR002",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c2"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "A02",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR003",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "C12",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR004",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A02",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR005",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A01",
+                "c2"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "A02",
+                "c2"
+              ],
+              [
+                "C11",
+                "c1"
+              ],
+              [
+                "C11",
+                "c2"
+              ],
+              [
+                "C12",
+                "c1"
+              ],
+              [
+                "C12",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR006",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A02",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR007",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A02",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR008",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "C12",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR009",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A02",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR010",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "A07",
+                "c1"
+              ],
+              [
+                "C12",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR011",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A01",
+                "c2"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "A02",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR012",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c2"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "A02",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR013",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A02",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR014",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A02",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR015",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A02",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR016",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "A07",
+                "c1"
+              ],
+              [
+                "A09",
+                "c1"
+              ],
+              [
+                "C12",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR017",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A01",
+                "c2"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "A02",
+                "c2"
+              ],
+              [
+                "A07",
+                "c1"
+              ],
+              [
+                "A07",
+                "c2"
+              ],
+              [
+                "A09",
+                "c1"
+              ],
+              [
+                "A09",
+                "c2"
+              ],
+              [
+                "C12",
+                "c1"
+              ],
+              [
+                "C12",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR018",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c2"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A02",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR019",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A03",
+                "c1"
+              ],
+              [
+                "A03",
+                "c2"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "A02",
+                "c2"
+              ],
+              [
+                "A07",
+                "c1"
+              ],
+              [
+                "A09",
+                "c1"
+              ],
+              [
+                "C11",
+                "c1"
+              ],
+              [
+                "C11",
+                "c2"
+              ],
+              [
+                "C12",
+                "c1"
+              ],
+              [
+                "C12",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR020",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "A07",
+                "c1"
+              ],
+              [
+                "A09",
+                "c1"
+              ],
+              [
+                "C11",
+                "c1"
+              ],
+              [
+                "C12",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "AF-20220120-CTV",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A02",
+                "c3"
+              ],
+              [
+                "A02",
+                "c4"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A01",
+                "c3"
+              ],
+              [
+                "A01",
+                "c4"
+              ],
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "A02",
+                "c2"
+              ],
+              [
+                "A02",
+                "c3"
+              ],
+              [
+                "A02",
+                "c4"
+              ]
+            ]
+          }
+        ]
+      },
+      "test": {
+        "summary": {
+          "n": 30,
+          "label_correct": 18,
+          "exact": 7,
+          "missed": 3,
+          "false_alarms": 9
+        },
+        "cases": [
+          {
+            "id": "JS-TR001",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c2"
+              ]
+            ],
+            "predicted": []
+          },
+          {
+            "id": "JS-TR002",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": [
+              [
+                "C11",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR003",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-TR004",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A02",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR005",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-TR006",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A02",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR007",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": [
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "A02",
+                "c2"
+              ],
+              [
+                "C11",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR008",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "A02",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR010",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-TR011",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-TR012",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c2"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR013",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-TR014",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A02",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR015",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "A02",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR016",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR017",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": [
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A01",
+                "c3"
+              ],
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "A02",
+                "c2"
+              ],
+              [
+                "A02",
+                "c3"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR018",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": [
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A02",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR019",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "A02",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR020",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": [
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A01",
+                "c3"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR021",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-TR022",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A02",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR023",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "A02",
+                "c2"
+              ],
+              [
+                "C11",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "JS-SUP02-04",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "A02",
+                "c2"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "C11",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR024",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "A07",
+                "c1"
+              ],
+              [
+                "A09",
+                "c1"
+              ],
+              [
+                "C12",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR025",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A03",
+                "c1"
+              ],
+              [
+                "A03",
+                "c3"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A01",
+                "c3"
+              ],
+              [
+                "A02",
+                "c2"
+              ],
+              [
+                "A02",
+                "c3"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR026",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "A02",
+                "c3"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A01",
+                "c3"
+              ],
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "A02",
+                "c2"
+              ],
+              [
+                "A02",
+                "c3"
+              ],
+              [
+                "A07",
+                "c3"
+              ],
+              [
+                "A09",
+                "c3"
+              ],
+              [
+                "C11",
+                "c3"
+              ],
+              [
+                "C12",
+                "c1"
+              ],
+              [
+                "C12",
+                "c2"
+              ],
+              [
+                "C12",
+                "c3"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR027",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A02",
+                "c2"
+              ],
+              [
+                "A02",
+                "c3"
+              ],
+              [
+                "C11",
+                "c1"
+              ],
+              [
+                "C11",
+                "c3"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A01",
+                "c3"
+              ],
+              [
+                "A02",
+                "c2"
+              ],
+              [
+                "A02",
+                "c3"
+              ],
+              [
+                "C11",
+                "c2"
+              ],
+              [
+                "C11",
+                "c3"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR028",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "A02",
+                "c3"
+              ]
+            ],
+            "predicted": []
+          },
+          {
+            "id": "JS-TR029",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A01",
+                "c4"
+              ]
+            ],
+            "predicted": []
+          },
+          {
+            "id": "JS-TR030",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "A02",
+                "c2"
+              ]
+            ]
+          }
+        ]
+      },
+      "negative_holdout": {
+        "summary": {
+          "n": 55,
+          "label_correct": 54,
+          "exact": 54,
+          "missed": 1,
+          "false_alarms": 0
+        },
+        "cases": [
+          {
+            "id": "JS-D00004",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00031",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00037",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00041",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00045",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00056",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00065",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00066",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00095",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00097",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00111",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00116",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00119",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00124",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00125",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00137",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00147",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00159",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00165",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00179",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00186",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00213",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00220",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00228",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00251",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00255",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00263",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00270",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00276",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00279",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00289",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00304",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00310",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00311",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00333",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00342",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00349",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00353",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00354",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00369",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00379",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00390",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00396",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00399",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00438",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00443",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00448",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00529",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00538",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00553",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00577",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00590",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00596",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00702",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00802",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "C12",
+                "c1"
+              ]
+            ],
+            "predicted": []
+          }
+        ]
+      }
+    }
+  },
+  "v1": {
+    "threshold": 0.05,
+    "checkpoint_sha256": "65bb88e0f21f75d9f46204b157bb8c21a65ac4cc92a1eed0e6d429a5b3cd0ee9",
+    "splits": {
+      "validation": {
+        "summary": {
+          "n": 41,
+          "label_correct": 39,
+          "exact": 27,
+          "missed": 1,
+          "false_alarms": 1
+        },
+        "cases": [
+          {
+            "id": "JS-D00017",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00021",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00022",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00062",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "C12",
+                "c1"
+              ],
+              [
+                "C12",
+                "c2"
+              ]
+            ],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00070",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00085",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00093",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00102",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00123",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00178",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00182",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00192",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00201",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00224",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00341",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00433",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00475",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00524",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-SUP03-13",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "C11",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A07",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "W04-POST-15",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR001",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": [
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A01",
+                "c3"
+              ],
+              [
+                "A02",
+                "c3"
+              ],
+              [
+                "A07",
+                "c3"
+              ],
+              [
+                "A09",
+                "c3"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR002",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c2"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A02",
+                "c2"
+              ],
+              [
+                "A07",
+                "c2"
+              ],
+              [
+                "A09",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR003",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR004",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR005",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A01",
+                "c2"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A02",
+                "c2"
+              ],
+              [
+                "A07",
+                "c2"
+              ],
+              [
+                "A09",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR006",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR007",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR008",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A07",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR009",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR010",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "A07",
+                "c1"
+              ],
+              [
+                "A09",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR011",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A01",
+                "c2"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A02",
+                "c2"
+              ],
+              [
+                "A07",
+                "c2"
+              ],
+              [
+                "A09",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR012",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c2"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "A02",
+                "c2"
+              ],
+              [
+                "A07",
+                "c1"
+              ],
+              [
+                "A07",
+                "c2"
+              ],
+              [
+                "A09",
+                "c1"
+              ],
+              [
+                "A09",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR013",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR014",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "A07",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR015",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR016",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR017",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A01",
+                "c2"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR018",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c2"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A02",
+                "c2"
+              ],
+              [
+                "A07",
+                "c2"
+              ],
+              [
+                "A09",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR019",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A03",
+                "c1"
+              ],
+              [
+                "A03",
+                "c2"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A02",
+                "c2"
+              ],
+              [
+                "A07",
+                "c2"
+              ],
+              [
+                "A09",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "JS-VR020",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "AF-20220120-CTV",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A02",
+                "c3"
+              ],
+              [
+                "A02",
+                "c4"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c3"
+              ],
+              [
+                "A01",
+                "c4"
+              ],
+              [
+                "A02",
+                "c3"
+              ],
+              [
+                "A07",
+                "c3"
+              ],
+              [
+                "A09",
+                "c3"
+              ]
+            ]
+          }
+        ]
+      },
+      "test": {
+        "summary": {
+          "n": 30,
+          "label_correct": 17,
+          "exact": 10,
+          "missed": 5,
+          "false_alarms": 8
+        },
+        "cases": [
+          {
+            "id": "JS-TR001",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c2"
+              ]
+            ],
+            "predicted": []
+          },
+          {
+            "id": "JS-TR002",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-TR003",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-TR004",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": []
+          },
+          {
+            "id": "JS-TR005",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-TR006",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR007",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": [
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A02",
+                "c2"
+              ],
+              [
+                "A07",
+                "c2"
+              ],
+              [
+                "A09",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR008",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A07",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR010",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-TR011",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-TR012",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c2"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR013",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-TR014",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A07",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR015",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-TR016",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR017",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": [
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A01",
+                "c3"
+              ],
+              [
+                "A02",
+                "c3"
+              ],
+              [
+                "A07",
+                "c2"
+              ],
+              [
+                "A07",
+                "c3"
+              ],
+              [
+                "A09",
+                "c3"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR018",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": [
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A02",
+                "c2"
+              ],
+              [
+                "A07",
+                "c2"
+              ],
+              [
+                "A09",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR019",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A02",
+                "c2"
+              ],
+              [
+                "A07",
+                "c2"
+              ],
+              [
+                "A09",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR020",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": [
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A01",
+                "c3"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR021",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A02",
+                "c2"
+              ],
+              [
+                "A07",
+                "c2"
+              ],
+              [
+                "A09",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR022",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR023",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "JS-SUP02-04",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "A02",
+                "c2"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c2"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR024",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c1"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A07",
+                "c1"
+              ],
+              [
+                "A09",
+                "c1"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR025",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A03",
+                "c1"
+              ],
+              [
+                "A03",
+                "c3"
+              ]
+            ],
+            "predicted": []
+          },
+          {
+            "id": "JS-TR026",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "A02",
+                "c3"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c3"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR027",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A02",
+                "c2"
+              ],
+              [
+                "A02",
+                "c3"
+              ],
+              [
+                "C11",
+                "c1"
+              ],
+              [
+                "C11",
+                "c3"
+              ]
+            ],
+            "predicted": [
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A01",
+                "c3"
+              ],
+              [
+                "A02",
+                "c3"
+              ]
+            ]
+          },
+          {
+            "id": "JS-TR028",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A02",
+                "c1"
+              ],
+              [
+                "A02",
+                "c3"
+              ]
+            ],
+            "predicted": []
+          },
+          {
+            "id": "JS-TR029",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A01",
+                "c4"
+              ]
+            ],
+            "predicted": []
+          },
+          {
+            "id": "JS-TR030",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": [
+              [
+                "A01",
+                "c1"
+              ],
+              [
+                "A01",
+                "c2"
+              ],
+              [
+                "A02",
+                "c2"
+              ],
+              [
+                "A07",
+                "c2"
+              ],
+              [
+                "A09",
+                "c2"
+              ]
+            ]
+          }
+        ]
+      },
+      "negative_holdout": {
+        "summary": {
+          "n": 55,
+          "label_correct": 54,
+          "exact": 54,
+          "missed": 1,
+          "false_alarms": 0
+        },
+        "cases": [
+          {
+            "id": "JS-D00004",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00031",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00037",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00041",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00045",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00056",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00065",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00066",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00095",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00097",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00111",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00116",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00119",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00124",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00125",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00137",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00147",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00159",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00165",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00179",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00186",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00213",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00220",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00228",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00251",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00255",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00263",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00270",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00276",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00279",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00289",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00304",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00310",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00311",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00333",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00342",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00349",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00353",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00354",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00369",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00379",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00390",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00396",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00399",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00438",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00443",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00448",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00529",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00538",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00553",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00577",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00590",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00596",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00702",
+            "expected": "not_detected",
+            "gold": [],
+            "predicted": []
+          },
+          {
+            "id": "JS-D00802",
+            "expected": "suspicious",
+            "gold": [
+              [
+                "C12",
+                "c1"
+              ]
+            ],
+            "predicted": []
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,2450 @@
+{
+  "dataset": "jobshield-w05-model-comparison",
+  "datasetSha256": "2cf2e106a2049e1fb3f78d456ce558f881867c84f59bd52db4e7277b2d7df8ed",
+  "runAt": "2026-11-11T23:29:23+07:00",
+  "catalogVersion": "w05.1",
+  "catalogSha256": "6beab31f506e621ea3169d63af8fcb0b460307af72f96e302b794075c26e8289",
+  "modelSha256": {
+    "tfidf": "2f510dc6954ca5ec6e9f7239689335ce6b63196d86f6ebae9cf590441c613b1d",
+    "phobert": "07f15b50ddacc80ec101777648e0ef67ea1468a4ddddeee8426091c9261c5681"
+  },
+  "rows": [
+    {
+      "id": "T01",
+      "group": "post",
+      "title": "Phí duyệt hồ sơ cho ca trực thư viện",
+      "input": {
+        "text": "Tuyển sinh viên trực quầy mượn sách theo ca tối.\nỨng viên phải đóng phí xét hồ sơ 160.000 đồng để được xét tuyển.",
+        "segments": [
+          {
+            "start": 0,
+            "end": 49,
+            "role": "job_post"
+          },
+          {
+            "start": 49,
+            "end": 113,
+            "role": "job_post"
+          }
+        ]
+      },
+      "expected": {
+        "label": "suspicious",
+        "findings": [
+          {
+            "code": "A01",
+            "segments": [
+              1
+            ],
+            "quote": "Ứng viên phải đóng phí xét hồ sơ 160.000 đồng để được xét tuyển."
+          }
+        ]
+      },
+      "actual": {
+        "tfidf": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 49,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 49,
+                "end": 113,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "not_detected",
+            "catalogVersion": "w05.1",
+            "findings": [
+              {
+                "code": "A01",
+                "quote": "Ứng viên phải đóng phí xét hồ sơ 160.000 đồng để được xét tuyển.",
+                "scenario": {
+                  "title": "Trả tiền để được nhận việc",
+                  "description": "Bên tuyển dụng yêu cầu ứng viên trả tiền hoặc mua hàng như một điều kiện để được xét tuyển, giữ chỗ hoặc nhận việc.",
+                  "reference": {
+                    "title": "Thanh Niên ghi nhận yêu cầu ký quỹ khi xin việc",
+                    "summary": "Trong buổi tuyển dụng do phóng viên trực tiếp tham gia, người tuyển yêu cầu đóng khoản ký quỹ đồng phục, thiết bị trước khi làm hồ sơ và hợp đồng.",
+                    "sourceUrl": "https://thanhnien.vn/vach-tran-chieu-mao-danh-de-tuyen-dung-lua-tien-sinh-vien-bat-dong-bat-khoc-185230524124448116.htm"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "phobert": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 49,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 49,
+                "end": 113,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "not_detected",
+            "catalogVersion": "w05.1",
+            "findings": [
+              {
+                "code": "A01",
+                "quote": "Ứng viên phải đóng phí xét hồ sơ 160.000 đồng để được xét tuyển.",
+                "scenario": {
+                  "title": "Trả tiền để được nhận việc",
+                  "description": "Bên tuyển dụng yêu cầu ứng viên trả tiền hoặc mua hàng như một điều kiện để được xét tuyển, giữ chỗ hoặc nhận việc.",
+                  "reference": {
+                    "title": "Thanh Niên ghi nhận yêu cầu ký quỹ khi xin việc",
+                    "summary": "Trong buổi tuyển dụng do phóng viên trực tiếp tham gia, người tuyển yêu cầu đóng khoản ký quỹ đồng phục, thiết bị trước khi làm hồ sơ và hợp đồng.",
+                    "sourceUrl": "https://thanhnien.vn/vach-tran-chieu-mao-danh-de-tuyen-dung-lua-tien-sinh-vien-bat-dong-bat-khoc-185230524124448116.htm"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "T02",
+      "group": "post",
+      "title": "Giữ suất phụ lễ hội bằng khoản ký quỹ",
+      "input": {
+        "text": "Cần người hỗ trợ quầy đổi vé trong hai ngày hội sách.\nMuốn giữ được suất làm cuối tuần, người đăng ký gửi trước 240.000 đồng vào tài khoản phụ trách.",
+        "segments": [
+          {
+            "start": 0,
+            "end": 54,
+            "role": "job_post"
+          },
+          {
+            "start": 54,
+            "end": 149,
+            "role": "job_post"
+          }
+        ]
+      },
+      "expected": {
+        "label": "suspicious",
+        "findings": [
+          {
+            "code": "A01",
+            "segments": [
+              1
+            ],
+            "quote": "Muốn giữ được suất làm cuối tuần, người đăng ký gửi trước 240.000 đồng vào tài khoản phụ trách."
+          }
+        ]
+      },
+      "actual": {
+        "tfidf": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 54,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 54,
+                "end": 149,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "not_detected",
+            "catalogVersion": "w05.1",
+            "findings": []
+          }
+        },
+        "phobert": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 54,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 54,
+                "end": 149,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "suspicious",
+            "catalogVersion": "w05.1",
+            "findings": []
+          }
+        }
+      }
+    },
+    {
+      "id": "T03",
+      "group": "post",
+      "title": "Dùng tiền cá nhân để xử lý đơn",
+      "input": {
+        "text": "Tuyển cộng tác viên xử lý đơn nội thất trong ca chiều.\nỨng viên phải dùng tiền cá nhân để xử lý đơn và sẽ nhận lại vốn sau khi xác nhận giao hàng.",
+        "segments": [
+          {
+            "start": 0,
+            "end": 55,
+            "role": "job_post"
+          },
+          {
+            "start": 55,
+            "end": 146,
+            "role": "job_post"
+          }
+        ]
+      },
+      "expected": {
+        "label": "suspicious",
+        "findings": [
+          {
+            "code": "A02",
+            "segments": [
+              1
+            ],
+            "quote": "Ứng viên phải dùng tiền cá nhân để xử lý đơn và sẽ nhận lại vốn sau khi xác nhận giao hàng."
+          }
+        ]
+      },
+      "actual": {
+        "tfidf": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 55,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 55,
+                "end": 146,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "not_detected",
+            "catalogVersion": "w05.1",
+            "findings": [
+              {
+                "code": "A02",
+                "quote": "Ứng viên phải dùng tiền cá nhân để xử lý đơn và sẽ nhận lại vốn sau khi xác nhận giao hàng.",
+                "scenario": {
+                  "title": "Ứng tiền làm nhiệm vụ",
+                  "description": "Người giao việc yêu cầu ứng viên dùng tiền cá nhân để làm nhiệm vụ, kèm lời hứa hoàn tiền hoặc trả hoa hồng.",
+                  "reference": {
+                    "title": "Dân trí ghi nhận vụ chuyển tiền làm nhiệm vụ hưởng hoa hồng",
+                    "summary": "Người phản ánh cho biết anh đăng ký qua quảng cáo tuyển dụng rồi được yêu cầu chuyển tiền để làm nhiệm vụ. Theo lời anh, số tiền phải bỏ ra tăng dần và khoản đã nộp bị mất.",
+                    "sourceUrl": "https://dantri.com.vn/phap-luat/nguoi-dan-ong-bi-lua-dao-khi-tham-gia-lam-nhiem-vu-huong-hoa-hong-20231107145452089.htm"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "phobert": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 55,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 55,
+                "end": 146,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "suspicious",
+            "catalogVersion": "w05.1",
+            "findings": [
+              {
+                "code": "A02",
+                "quote": "Ứng viên phải dùng tiền cá nhân để xử lý đơn và sẽ nhận lại vốn sau khi xác nhận giao hàng.",
+                "scenario": {
+                  "title": "Ứng tiền làm nhiệm vụ",
+                  "description": "Người giao việc yêu cầu ứng viên dùng tiền cá nhân để làm nhiệm vụ, kèm lời hứa hoàn tiền hoặc trả hoa hồng.",
+                  "reference": {
+                    "title": "Dân trí ghi nhận vụ chuyển tiền làm nhiệm vụ hưởng hoa hồng",
+                    "summary": "Người phản ánh cho biết anh đăng ký qua quảng cáo tuyển dụng rồi được yêu cầu chuyển tiền để làm nhiệm vụ. Theo lời anh, số tiền phải bỏ ra tăng dần và khoản đã nộp bị mất.",
+                    "sourceUrl": "https://dantri.com.vn/phap-luat/nguoi-dan-ong-bi-lua-dao-khi-tham-gia-lam-nhiem-vu-huong-hoa-hong-20231107145452089.htm"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "T04",
+      "group": "post",
+      "title": "Tự trả tiền cho phiếu mua thử",
+      "input": {
+        "text": "Tuyển cộng tác viên kiểm tra quy trình mua vé trực tuyến.\nMỗi lượt kiểm tra yêu cầu bạn lấy tiền túi thanh toán một vé, sau đó hệ thống hoàn lại đúng giá vé kèm 12% công.",
+        "segments": [
+          {
+            "start": 0,
+            "end": 58,
+            "role": "job_post"
+          },
+          {
+            "start": 58,
+            "end": 170,
+            "role": "job_post"
+          }
+        ]
+      },
+      "expected": {
+        "label": "suspicious",
+        "findings": [
+          {
+            "code": "A02",
+            "segments": [
+              1
+            ],
+            "quote": "Mỗi lượt kiểm tra yêu cầu bạn lấy tiền túi thanh toán một vé, sau đó hệ thống hoàn lại đúng giá vé kèm 12% công."
+          }
+        ]
+      },
+      "actual": {
+        "tfidf": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 58,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 58,
+                "end": 170,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "not_detected",
+            "catalogVersion": "w05.1",
+            "findings": []
+          }
+        },
+        "phobert": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 58,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 58,
+                "end": 170,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "suspicious",
+            "catalogVersion": "w05.1",
+            "findings": []
+          }
+        }
+      }
+    },
+    {
+      "id": "T05",
+      "group": "post",
+      "title": "Thu tiền để xếp ca và yêu cầu ứng tiền làm đơn",
+      "input": {
+        "text": "Tuyển cộng tác viên xử lý đơn thiết bị gia dụng.\nNgười đăng ký phải nộp phí đồng phục trước khi được xếp ca.\nỨng viên phải nạp tiền cá nhân để làm nhiệm vụ kiểm đơn rồi nhận lại vốn và hoa hồng.",
+        "segments": [
+          {
+            "start": 0,
+            "end": 49,
+            "role": "job_post"
+          },
+          {
+            "start": 49,
+            "end": 109,
+            "role": "job_post"
+          },
+          {
+            "start": 109,
+            "end": 194,
+            "role": "job_post"
+          }
+        ]
+      },
+      "expected": {
+        "label": "suspicious",
+        "findings": [
+          {
+            "code": "A01",
+            "segments": [
+              1
+            ],
+            "quote": "Người đăng ký phải nộp phí đồng phục trước khi được xếp ca."
+          },
+          {
+            "code": "A02",
+            "segments": [
+              2
+            ],
+            "quote": "Ứng viên phải nạp tiền cá nhân để làm nhiệm vụ kiểm đơn rồi nhận lại vốn và hoa hồng."
+          }
+        ]
+      },
+      "actual": {
+        "tfidf": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 49,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 49,
+                "end": 109,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 109,
+                "end": 194,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "not_detected",
+            "catalogVersion": "w05.1",
+            "findings": [
+              {
+                "code": "A01",
+                "quote": "Người đăng ký phải nộp phí đồng phục trước khi được xếp ca.",
+                "scenario": {
+                  "title": "Trả tiền để được nhận việc",
+                  "description": "Bên tuyển dụng yêu cầu ứng viên trả tiền hoặc mua hàng như một điều kiện để được xét tuyển, giữ chỗ hoặc nhận việc.",
+                  "reference": {
+                    "title": "Thanh Niên ghi nhận yêu cầu ký quỹ khi xin việc",
+                    "summary": "Trong buổi tuyển dụng do phóng viên trực tiếp tham gia, người tuyển yêu cầu đóng khoản ký quỹ đồng phục, thiết bị trước khi làm hồ sơ và hợp đồng.",
+                    "sourceUrl": "https://thanhnien.vn/vach-tran-chieu-mao-danh-de-tuyen-dung-lua-tien-sinh-vien-bat-dong-bat-khoc-185230524124448116.htm"
+                  }
+                }
+              },
+              {
+                "code": "A02",
+                "quote": "Ứng viên phải nạp tiền cá nhân để làm nhiệm vụ kiểm đơn rồi nhận lại vốn và hoa hồng.",
+                "scenario": {
+                  "title": "Ứng tiền làm nhiệm vụ",
+                  "description": "Người giao việc yêu cầu ứng viên dùng tiền cá nhân để làm nhiệm vụ, kèm lời hứa hoàn tiền hoặc trả hoa hồng.",
+                  "reference": {
+                    "title": "Dân trí ghi nhận vụ chuyển tiền làm nhiệm vụ hưởng hoa hồng",
+                    "summary": "Người phản ánh cho biết anh đăng ký qua quảng cáo tuyển dụng rồi được yêu cầu chuyển tiền để làm nhiệm vụ. Theo lời anh, số tiền phải bỏ ra tăng dần và khoản đã nộp bị mất.",
+                    "sourceUrl": "https://dantri.com.vn/phap-luat/nguoi-dan-ong-bi-lua-dao-khi-tham-gia-lam-nhiem-vu-huong-hoa-hong-20231107145452089.htm"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "phobert": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 49,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 49,
+                "end": 109,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 109,
+                "end": 194,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "not_detected",
+            "catalogVersion": "w05.1",
+            "findings": [
+              {
+                "code": "A01",
+                "quote": "Người đăng ký phải nộp phí đồng phục trước khi được xếp ca.",
+                "scenario": {
+                  "title": "Trả tiền để được nhận việc",
+                  "description": "Bên tuyển dụng yêu cầu ứng viên trả tiền hoặc mua hàng như một điều kiện để được xét tuyển, giữ chỗ hoặc nhận việc.",
+                  "reference": {
+                    "title": "Thanh Niên ghi nhận yêu cầu ký quỹ khi xin việc",
+                    "summary": "Trong buổi tuyển dụng do phóng viên trực tiếp tham gia, người tuyển yêu cầu đóng khoản ký quỹ đồng phục, thiết bị trước khi làm hồ sơ và hợp đồng.",
+                    "sourceUrl": "https://thanhnien.vn/vach-tran-chieu-mao-danh-de-tuyen-dung-lua-tien-sinh-vien-bat-dong-bat-khoc-185230524124448116.htm"
+                  }
+                }
+              },
+              {
+                "code": "A02",
+                "quote": "Ứng viên phải nạp tiền cá nhân để làm nhiệm vụ kiểm đơn rồi nhận lại vốn và hoa hồng.",
+                "scenario": {
+                  "title": "Ứng tiền làm nhiệm vụ",
+                  "description": "Người giao việc yêu cầu ứng viên dùng tiền cá nhân để làm nhiệm vụ, kèm lời hứa hoàn tiền hoặc trả hoa hồng.",
+                  "reference": {
+                    "title": "Dân trí ghi nhận vụ chuyển tiền làm nhiệm vụ hưởng hoa hồng",
+                    "summary": "Người phản ánh cho biết anh đăng ký qua quảng cáo tuyển dụng rồi được yêu cầu chuyển tiền để làm nhiệm vụ. Theo lời anh, số tiền phải bỏ ra tăng dần và khoản đã nộp bị mất.",
+                    "sourceUrl": "https://dantri.com.vn/phap-luat/nguoi-dan-ong-bi-lua-dao-khi-tham-gia-lam-nhiem-vu-huong-hoa-hong-20231107145452089.htm"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "T06",
+      "group": "post",
+      "title": "Tin tuyển ca bán hàng thông thường",
+      "input": {
+        "text": "Tiệm bánh cần hai bạn phụ quầy từ 17 giờ đến 21 giờ, trả lương theo giờ.\nGửi lịch rảnh để cửa hàng hẹn phỏng vấn trực tiếp.",
+        "segments": [
+          {
+            "start": 0,
+            "end": 73,
+            "role": "job_post"
+          },
+          {
+            "start": 73,
+            "end": 123,
+            "role": "job_post"
+          }
+        ]
+      },
+      "expected": {
+        "label": "not_detected",
+        "findings": []
+      },
+      "actual": {
+        "tfidf": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 73,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 73,
+                "end": 123,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "not_detected",
+            "catalogVersion": "w05.1",
+            "findings": []
+          }
+        },
+        "phobert": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 73,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 73,
+                "end": 123,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "not_detected",
+            "catalogVersion": "w05.1",
+            "findings": []
+          }
+        }
+      }
+    },
+    {
+      "id": "T07",
+      "group": "post",
+      "title": "Nêu rõ không thu phí tuyển dụng",
+      "input": {
+        "text": "Tuyển nhân viên soạn hàng theo ca, lương 32.000 đồng mỗi giờ.\nKhông thu phí đồng phục hay phí xét hồ sơ khi tuyển dụng.",
+        "segments": [
+          {
+            "start": 0,
+            "end": 62,
+            "role": "job_post"
+          },
+          {
+            "start": 62,
+            "end": 119,
+            "role": "job_post"
+          }
+        ]
+      },
+      "expected": {
+        "label": "not_detected",
+        "findings": []
+      },
+      "actual": {
+        "tfidf": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 62,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 62,
+                "end": 119,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "not_detected",
+            "catalogVersion": "w05.1",
+            "findings": []
+          }
+        },
+        "phobert": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 62,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 62,
+                "end": 119,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "not_detected",
+            "catalogVersion": "w05.1",
+            "findings": []
+          }
+        }
+      }
+    },
+    {
+      "id": "T08",
+      "group": "post",
+      "title": "Công ty cấp kinh phí thực hiện việc",
+      "input": {
+        "text": "Tuyển nhân viên đi lấy hàng mẫu trong nội thành.\nCông ty sẽ ứng tiền mua hàng mẫu, nhân viên giữ hóa đơn để quyết toán.",
+        "segments": [
+          {
+            "start": 0,
+            "end": 49,
+            "role": "job_post"
+          },
+          {
+            "start": 49,
+            "end": 119,
+            "role": "job_post"
+          }
+        ]
+      },
+      "expected": {
+        "label": "not_detected",
+        "findings": []
+      },
+      "actual": {
+        "tfidf": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 49,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 49,
+                "end": 119,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "not_detected",
+            "catalogVersion": "w05.1",
+            "findings": []
+          }
+        },
+        "phobert": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 49,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 49,
+                "end": 119,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "suspicious",
+            "catalogVersion": "w05.1",
+            "findings": []
+          }
+        }
+      }
+    },
+    {
+      "id": "M01",
+      "group": "mixed",
+      "title": "Tin tuyển mở đầu, phí hồ sơ xuất hiện trong chat",
+      "input": {
+        "text": "Nhà in tuyển sinh viên sắp xếp đơn in buổi sáng.\nỨng viên: Em có thể bắt đầu thứ hai được không ạ?\nBên tuyển dụng: Em cần nộp phí hồ sơ 185.000 đồng trước khi được xếp ca.",
+        "segments": [
+          {
+            "start": 0,
+            "end": 49,
+            "role": "job_post"
+          },
+          {
+            "start": 49,
+            "end": 99,
+            "role": "applicant"
+          },
+          {
+            "start": 99,
+            "end": 171,
+            "role": "recruiter"
+          }
+        ]
+      },
+      "expected": {
+        "label": "suspicious",
+        "findings": [
+          {
+            "code": "A01",
+            "segments": [
+              2
+            ],
+            "quote": "Bên tuyển dụng: Em cần nộp phí hồ sơ 185.000 đồng trước khi được xếp ca."
+          }
+        ]
+      },
+      "actual": {
+        "tfidf": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 49,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 49,
+                "end": 99,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 99,
+                "end": 171,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "not_detected",
+            "catalogVersion": "w05.1",
+            "findings": [
+              {
+                "code": "A01",
+                "quote": "Bên tuyển dụng: Em cần nộp phí hồ sơ 185.000 đồng trước khi được xếp ca.",
+                "scenario": {
+                  "title": "Trả tiền để được nhận việc",
+                  "description": "Bên tuyển dụng yêu cầu ứng viên trả tiền hoặc mua hàng như một điều kiện để được xét tuyển, giữ chỗ hoặc nhận việc.",
+                  "reference": {
+                    "title": "Thanh Niên ghi nhận yêu cầu ký quỹ khi xin việc",
+                    "summary": "Trong buổi tuyển dụng do phóng viên trực tiếp tham gia, người tuyển yêu cầu đóng khoản ký quỹ đồng phục, thiết bị trước khi làm hồ sơ và hợp đồng.",
+                    "sourceUrl": "https://thanhnien.vn/vach-tran-chieu-mao-danh-de-tuyen-dung-lua-tien-sinh-vien-bat-dong-bat-khoc-185230524124448116.htm"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "phobert": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 49,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 49,
+                "end": 99,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 99,
+                "end": 171,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "suspicious",
+            "catalogVersion": "w05.1",
+            "findings": [
+              {
+                "code": "A01",
+                "quote": "Bên tuyển dụng: Em cần nộp phí hồ sơ 185.000 đồng trước khi được xếp ca.",
+                "scenario": {
+                  "title": "Trả tiền để được nhận việc",
+                  "description": "Bên tuyển dụng yêu cầu ứng viên trả tiền hoặc mua hàng như một điều kiện để được xét tuyển, giữ chỗ hoặc nhận việc.",
+                  "reference": {
+                    "title": "Thanh Niên ghi nhận yêu cầu ký quỹ khi xin việc",
+                    "summary": "Trong buổi tuyển dụng do phóng viên trực tiếp tham gia, người tuyển yêu cầu đóng khoản ký quỹ đồng phục, thiết bị trước khi làm hồ sơ và hợp đồng.",
+                    "sourceUrl": "https://thanhnien.vn/vach-tran-chieu-mao-danh-de-tuyen-dung-lua-tien-sinh-vien-bat-dong-bat-khoc-185230524124448116.htm"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "M02",
+      "group": "mixed",
+      "title": "Khoản giữ chỗ được xác nhận qua hai lượt",
+      "input": {
+        "text": "Tuyển trợ lý gian hàng tại hội chợ cuối tuần.\nỨng viên: Em phải chuyển trước 220.000 đồng mới được giữ suất phụ gian hàng đúng không ạ?\nBên tuyển dụng: Đúng rồi, bên chị chỉ giữ suất khi nhận được khoản đó.",
+        "segments": [
+          {
+            "start": 0,
+            "end": 46,
+            "role": "job_post"
+          },
+          {
+            "start": 46,
+            "end": 136,
+            "role": "applicant"
+          },
+          {
+            "start": 136,
+            "end": 206,
+            "role": "recruiter"
+          }
+        ]
+      },
+      "expected": {
+        "label": "suspicious",
+        "findings": [
+          {
+            "code": "A01",
+            "segments": [
+              1,
+              2
+            ],
+            "quote": "Ứng viên: Em phải chuyển trước 220.000 đồng mới được giữ suất phụ gian hàng đúng không ạ?\nBên tuyển dụng: Đúng rồi, bên chị chỉ giữ suất khi nhận được khoản đó."
+          }
+        ]
+      },
+      "actual": {
+        "tfidf": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 46,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 46,
+                "end": 136,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 136,
+                "end": 206,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "not_detected",
+            "catalogVersion": "w05.1",
+            "findings": []
+          }
+        },
+        "phobert": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 46,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 46,
+                "end": 136,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 136,
+                "end": 206,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "suspicious",
+            "catalogVersion": "w05.1",
+            "findings": []
+          }
+        }
+      }
+    },
+    {
+      "id": "M03",
+      "group": "mixed",
+      "title": "Ứng tiền kiểm đơn được nêu ở chat",
+      "input": {
+        "text": "Tuyển cộng tác viên đối chiếu đơn hàng đồ thể thao.\nỨng viên: Khi có đơn thì em thao tác thế nào?\nBên tuyển dụng: Em phải ứng tiền để hoàn thành đơn thử rồi nhận lại vốn và hoa hồng.",
+        "segments": [
+          {
+            "start": 0,
+            "end": 52,
+            "role": "job_post"
+          },
+          {
+            "start": 52,
+            "end": 98,
+            "role": "applicant"
+          },
+          {
+            "start": 98,
+            "end": 182,
+            "role": "recruiter"
+          }
+        ]
+      },
+      "expected": {
+        "label": "suspicious",
+        "findings": [
+          {
+            "code": "A02",
+            "segments": [
+              2
+            ],
+            "quote": "Bên tuyển dụng: Em phải ứng tiền để hoàn thành đơn thử rồi nhận lại vốn và hoa hồng."
+          }
+        ]
+      },
+      "actual": {
+        "tfidf": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 52,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 52,
+                "end": 98,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 98,
+                "end": 182,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "not_detected",
+            "catalogVersion": "w05.1",
+            "findings": [
+              {
+                "code": "A02",
+                "quote": "Bên tuyển dụng: Em phải ứng tiền để hoàn thành đơn thử rồi nhận lại vốn và hoa hồng.",
+                "scenario": {
+                  "title": "Ứng tiền làm nhiệm vụ",
+                  "description": "Người giao việc yêu cầu ứng viên dùng tiền cá nhân để làm nhiệm vụ, kèm lời hứa hoàn tiền hoặc trả hoa hồng.",
+                  "reference": {
+                    "title": "Dân trí ghi nhận vụ chuyển tiền làm nhiệm vụ hưởng hoa hồng",
+                    "summary": "Người phản ánh cho biết anh đăng ký qua quảng cáo tuyển dụng rồi được yêu cầu chuyển tiền để làm nhiệm vụ. Theo lời anh, số tiền phải bỏ ra tăng dần và khoản đã nộp bị mất.",
+                    "sourceUrl": "https://dantri.com.vn/phap-luat/nguoi-dan-ong-bi-lua-dao-khi-tham-gia-lam-nhiem-vu-huong-hoa-hong-20231107145452089.htm"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "phobert": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 52,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 52,
+                "end": 98,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 98,
+                "end": 182,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "suspicious",
+            "catalogVersion": "w05.1",
+            "findings": [
+              {
+                "code": "A02",
+                "quote": "Bên tuyển dụng: Em phải ứng tiền để hoàn thành đơn thử rồi nhận lại vốn và hoa hồng.",
+                "scenario": {
+                  "title": "Ứng tiền làm nhiệm vụ",
+                  "description": "Người giao việc yêu cầu ứng viên dùng tiền cá nhân để làm nhiệm vụ, kèm lời hứa hoàn tiền hoặc trả hoa hồng.",
+                  "reference": {
+                    "title": "Dân trí ghi nhận vụ chuyển tiền làm nhiệm vụ hưởng hoa hồng",
+                    "summary": "Người phản ánh cho biết anh đăng ký qua quảng cáo tuyển dụng rồi được yêu cầu chuyển tiền để làm nhiệm vụ. Theo lời anh, số tiền phải bỏ ra tăng dần và khoản đã nộp bị mất.",
+                    "sourceUrl": "https://dantri.com.vn/phap-luat/nguoi-dan-ong-bi-lua-dao-khi-tham-gia-lam-nhiem-vu-huong-hoa-hong-20231107145452089.htm"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "M04",
+      "group": "mixed",
+      "title": "Trả trước bằng ví cá nhân khi thử đặt món",
+      "input": {
+        "text": "Tuyển cộng tác viên kiểm tra quy trình đặt món, làm theo lượt.\nBên tuyển dụng: Để thực hiện mỗi lượt thử, em dùng số dư ví cá nhân trả trước tiền món, bên chị chuyển lại toàn bộ tiền và phần công sau khi xong.",
+        "segments": [
+          {
+            "start": 0,
+            "end": 63,
+            "role": "job_post"
+          },
+          {
+            "start": 63,
+            "end": 209,
+            "role": "recruiter"
+          }
+        ]
+      },
+      "expected": {
+        "label": "suspicious",
+        "findings": [
+          {
+            "code": "A02",
+            "segments": [
+              1
+            ],
+            "quote": "Bên tuyển dụng: Để thực hiện mỗi lượt thử, em dùng số dư ví cá nhân trả trước tiền món, bên chị chuyển lại toàn bộ tiền và phần công sau khi xong."
+          }
+        ]
+      },
+      "actual": {
+        "tfidf": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 63,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 63,
+                "end": 209,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "not_detected",
+            "catalogVersion": "w05.1",
+            "findings": []
+          }
+        },
+        "phobert": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 63,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 63,
+                "end": 209,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "suspicious",
+            "catalogVersion": "w05.1",
+            "findings": []
+          }
+        }
+      }
+    },
+    {
+      "id": "M05",
+      "group": "mixed",
+      "title": "Phí vào ca trong tin, tiền ứng nhiệm vụ trong chat",
+      "input": {
+        "text": "Tuyển người hỗ trợ gian hàng bán đồ thủ công trực tuyến.\nỨng viên phải nộp khoản phí xác nhận trước khi được xếp ca.\nỨng viên: Khi vào ca em làm phần nào?\nBên tuyển dụng: Em phải nạp tiền cá nhân để chốt đơn và sẽ nhận lại vốn sau mỗi nhiệm vụ.",
+        "segments": [
+          {
+            "start": 0,
+            "end": 57,
+            "role": "job_post"
+          },
+          {
+            "start": 57,
+            "end": 117,
+            "role": "job_post"
+          },
+          {
+            "start": 117,
+            "end": 155,
+            "role": "applicant"
+          },
+          {
+            "start": 155,
+            "end": 244,
+            "role": "recruiter"
+          }
+        ]
+      },
+      "expected": {
+        "label": "suspicious",
+        "findings": [
+          {
+            "code": "A01",
+            "segments": [
+              1
+            ],
+            "quote": "Ứng viên phải nộp khoản phí xác nhận trước khi được xếp ca."
+          },
+          {
+            "code": "A02",
+            "segments": [
+              3
+            ],
+            "quote": "Bên tuyển dụng: Em phải nạp tiền cá nhân để chốt đơn và sẽ nhận lại vốn sau mỗi nhiệm vụ."
+          }
+        ]
+      },
+      "actual": {
+        "tfidf": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 57,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 57,
+                "end": 117,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 117,
+                "end": 155,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 155,
+                "end": 244,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "not_detected",
+            "catalogVersion": "w05.1",
+            "findings": [
+              {
+                "code": "A01",
+                "quote": "Ứng viên phải nộp khoản phí xác nhận trước khi được xếp ca.",
+                "scenario": {
+                  "title": "Trả tiền để được nhận việc",
+                  "description": "Bên tuyển dụng yêu cầu ứng viên trả tiền hoặc mua hàng như một điều kiện để được xét tuyển, giữ chỗ hoặc nhận việc.",
+                  "reference": {
+                    "title": "Thanh Niên ghi nhận yêu cầu ký quỹ khi xin việc",
+                    "summary": "Trong buổi tuyển dụng do phóng viên trực tiếp tham gia, người tuyển yêu cầu đóng khoản ký quỹ đồng phục, thiết bị trước khi làm hồ sơ và hợp đồng.",
+                    "sourceUrl": "https://thanhnien.vn/vach-tran-chieu-mao-danh-de-tuyen-dung-lua-tien-sinh-vien-bat-dong-bat-khoc-185230524124448116.htm"
+                  }
+                }
+              },
+              {
+                "code": "A02",
+                "quote": "Bên tuyển dụng: Em phải nạp tiền cá nhân để chốt đơn và sẽ nhận lại vốn sau mỗi nhiệm vụ.",
+                "scenario": {
+                  "title": "Ứng tiền làm nhiệm vụ",
+                  "description": "Người giao việc yêu cầu ứng viên dùng tiền cá nhân để làm nhiệm vụ, kèm lời hứa hoàn tiền hoặc trả hoa hồng.",
+                  "reference": {
+                    "title": "Dân trí ghi nhận vụ chuyển tiền làm nhiệm vụ hưởng hoa hồng",
+                    "summary": "Người phản ánh cho biết anh đăng ký qua quảng cáo tuyển dụng rồi được yêu cầu chuyển tiền để làm nhiệm vụ. Theo lời anh, số tiền phải bỏ ra tăng dần và khoản đã nộp bị mất.",
+                    "sourceUrl": "https://dantri.com.vn/phap-luat/nguoi-dan-ong-bi-lua-dao-khi-tham-gia-lam-nhiem-vu-huong-hoa-hong-20231107145452089.htm"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "phobert": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 57,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 57,
+                "end": 117,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 117,
+                "end": 155,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 155,
+                "end": 244,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "suspicious",
+            "catalogVersion": "w05.1",
+            "findings": [
+              {
+                "code": "A01",
+                "quote": "Ứng viên phải nộp khoản phí xác nhận trước khi được xếp ca.",
+                "scenario": {
+                  "title": "Trả tiền để được nhận việc",
+                  "description": "Bên tuyển dụng yêu cầu ứng viên trả tiền hoặc mua hàng như một điều kiện để được xét tuyển, giữ chỗ hoặc nhận việc.",
+                  "reference": {
+                    "title": "Thanh Niên ghi nhận yêu cầu ký quỹ khi xin việc",
+                    "summary": "Trong buổi tuyển dụng do phóng viên trực tiếp tham gia, người tuyển yêu cầu đóng khoản ký quỹ đồng phục, thiết bị trước khi làm hồ sơ và hợp đồng.",
+                    "sourceUrl": "https://thanhnien.vn/vach-tran-chieu-mao-danh-de-tuyen-dung-lua-tien-sinh-vien-bat-dong-bat-khoc-185230524124448116.htm"
+                  }
+                }
+              },
+              {
+                "code": "A02",
+                "quote": "Bên tuyển dụng: Em phải nạp tiền cá nhân để chốt đơn và sẽ nhận lại vốn sau mỗi nhiệm vụ.",
+                "scenario": {
+                  "title": "Ứng tiền làm nhiệm vụ",
+                  "description": "Người giao việc yêu cầu ứng viên dùng tiền cá nhân để làm nhiệm vụ, kèm lời hứa hoàn tiền hoặc trả hoa hồng.",
+                  "reference": {
+                    "title": "Dân trí ghi nhận vụ chuyển tiền làm nhiệm vụ hưởng hoa hồng",
+                    "summary": "Người phản ánh cho biết anh đăng ký qua quảng cáo tuyển dụng rồi được yêu cầu chuyển tiền để làm nhiệm vụ. Theo lời anh, số tiền phải bỏ ra tăng dần và khoản đã nộp bị mất.",
+                    "sourceUrl": "https://dantri.com.vn/phap-luat/nguoi-dan-ong-bi-lua-dao-khi-tham-gia-lam-nhiem-vu-huong-hoa-hong-20231107145452089.htm"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "M06",
+      "group": "mixed",
+      "title": "Ứng viên hỏi phí, tuyển dụng phủ định",
+      "input": {
+        "text": "Quán ăn tuyển người chuẩn bị bàn vào ca tối.\nỨng viên: Em phải nộp phí trước khi nhận việc không ạ?\nBên tuyển dụng: Không thu phí tuyển dụng, em chỉ cần mang CV đến buổi gặp.",
+        "segments": [
+          {
+            "start": 0,
+            "end": 45,
+            "role": "job_post"
+          },
+          {
+            "start": 45,
+            "end": 100,
+            "role": "applicant"
+          },
+          {
+            "start": 100,
+            "end": 174,
+            "role": "recruiter"
+          }
+        ]
+      },
+      "expected": {
+        "label": "not_detected",
+        "findings": []
+      },
+      "actual": {
+        "tfidf": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 45,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 45,
+                "end": 100,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 100,
+                "end": 174,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "not_detected",
+            "catalogVersion": "w05.1",
+            "findings": []
+          }
+        },
+        "phobert": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 45,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 45,
+                "end": 100,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 100,
+                "end": 174,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "suspicious",
+            "catalogVersion": "w05.1",
+            "findings": []
+          }
+        }
+      }
+    },
+    {
+      "id": "M07",
+      "group": "mixed",
+      "title": "Phỏng vấn và xác nhận ca bình thường",
+      "input": {
+        "text": "Tuyển sinh viên hỗ trợ nhập kho ba buổi mỗi tuần.\nBên tuyển dụng: Em chọn một trong hai ca sáng rồi gửi lịch rảnh nhé.\nỨng viên: Dạ em đăng ký ca sáng thứ tư.",
+        "segments": [
+          {
+            "start": 0,
+            "end": 50,
+            "role": "job_post"
+          },
+          {
+            "start": 50,
+            "end": 119,
+            "role": "recruiter"
+          },
+          {
+            "start": 119,
+            "end": 158,
+            "role": "applicant"
+          }
+        ]
+      },
+      "expected": {
+        "label": "not_detected",
+        "findings": []
+      },
+      "actual": {
+        "tfidf": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 50,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 50,
+                "end": 119,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 119,
+                "end": 158,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "not_detected",
+            "catalogVersion": "w05.1",
+            "findings": []
+          }
+        },
+        "phobert": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 50,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 50,
+                "end": 119,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 119,
+                "end": 158,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "not_detected",
+            "catalogVersion": "w05.1",
+            "findings": []
+          }
+        }
+      }
+    },
+    {
+      "id": "M08",
+      "group": "mixed",
+      "title": "Kinh phí mua vật tư từ công ty",
+      "input": {
+        "text": "Tuyển phụ việc trang trí sự kiện bán thời gian.\nỨng viên: Ai thanh toán vật tư cho buổi dựng gian hàng ạ?\nBên tuyển dụng: Công ty sẽ ứng tiền mua vật tư để em làm nhiệm vụ, em chỉ nộp hóa đơn sau buổi.",
+        "segments": [
+          {
+            "start": 0,
+            "end": 48,
+            "role": "job_post"
+          },
+          {
+            "start": 48,
+            "end": 106,
+            "role": "applicant"
+          },
+          {
+            "start": 106,
+            "end": 201,
+            "role": "recruiter"
+          }
+        ]
+      },
+      "expected": {
+        "label": "not_detected",
+        "findings": []
+      },
+      "actual": {
+        "tfidf": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 48,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 48,
+                "end": 106,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 106,
+                "end": 201,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "not_detected",
+            "catalogVersion": "w05.1",
+            "findings": []
+          }
+        },
+        "phobert": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 48,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 48,
+                "end": 106,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 106,
+                "end": 201,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "suspicious",
+            "catalogVersion": "w05.1",
+            "findings": []
+          }
+        }
+      }
+    },
+    {
+      "id": "H01",
+      "group": "chat",
+      "title": "Yêu cầu đóng cọc để giữ chỗ",
+      "input": {
+        "text": "Ứng viên: Em còn có thể đăng ký ca tối thứ sáu không ạ?\nBên tuyển dụng: Em phải đóng cọc 125.000 đồng để giữ chỗ ca tối thứ sáu.",
+        "segments": [
+          {
+            "start": 0,
+            "end": 56,
+            "role": "applicant"
+          },
+          {
+            "start": 56,
+            "end": 128,
+            "role": "recruiter"
+          }
+        ]
+      },
+      "expected": {
+        "label": "suspicious",
+        "findings": [
+          {
+            "code": "A01",
+            "segments": [
+              1
+            ],
+            "quote": "Bên tuyển dụng: Em phải đóng cọc 125.000 đồng để giữ chỗ ca tối thứ sáu."
+          }
+        ]
+      },
+      "actual": {
+        "tfidf": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 56,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 56,
+                "end": 128,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "not_detected",
+            "catalogVersion": "w05.1",
+            "findings": [
+              {
+                "code": "A01",
+                "quote": "Bên tuyển dụng: Em phải đóng cọc 125.000 đồng để giữ chỗ ca tối thứ sáu.",
+                "scenario": {
+                  "title": "Trả tiền để được nhận việc",
+                  "description": "Bên tuyển dụng yêu cầu ứng viên trả tiền hoặc mua hàng như một điều kiện để được xét tuyển, giữ chỗ hoặc nhận việc.",
+                  "reference": {
+                    "title": "Thanh Niên ghi nhận yêu cầu ký quỹ khi xin việc",
+                    "summary": "Trong buổi tuyển dụng do phóng viên trực tiếp tham gia, người tuyển yêu cầu đóng khoản ký quỹ đồng phục, thiết bị trước khi làm hồ sơ và hợp đồng.",
+                    "sourceUrl": "https://thanhnien.vn/vach-tran-chieu-mao-danh-de-tuyen-dung-lua-tien-sinh-vien-bat-dong-bat-khoc-185230524124448116.htm"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "phobert": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 56,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 56,
+                "end": 128,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "suspicious",
+            "catalogVersion": "w05.1",
+            "findings": [
+              {
+                "code": "A01",
+                "quote": "Bên tuyển dụng: Em phải đóng cọc 125.000 đồng để giữ chỗ ca tối thứ sáu.",
+                "scenario": {
+                  "title": "Trả tiền để được nhận việc",
+                  "description": "Bên tuyển dụng yêu cầu ứng viên trả tiền hoặc mua hàng như một điều kiện để được xét tuyển, giữ chỗ hoặc nhận việc.",
+                  "reference": {
+                    "title": "Thanh Niên ghi nhận yêu cầu ký quỹ khi xin việc",
+                    "summary": "Trong buổi tuyển dụng do phóng viên trực tiếp tham gia, người tuyển yêu cầu đóng khoản ký quỹ đồng phục, thiết bị trước khi làm hồ sơ và hợp đồng.",
+                    "sourceUrl": "https://thanhnien.vn/vach-tran-chieu-mao-danh-de-tuyen-dung-lua-tien-sinh-vien-bat-dong-bat-khoc-185230524124448116.htm"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "H02",
+      "group": "chat",
+      "title": "Mua bộ nhận diện mới được xếp lịch",
+      "input": {
+        "text": "Ứng viên: Bao giờ em được xếp lịch ở quầy thông tin ạ?\nBên tuyển dụng: Chị chỉ xếp lịch cho em sau khi em tự mua bộ nhận diện giá 275.000 đồng do bên chị bán.",
+        "segments": [
+          {
+            "start": 0,
+            "end": 55,
+            "role": "applicant"
+          },
+          {
+            "start": 55,
+            "end": 158,
+            "role": "recruiter"
+          }
+        ]
+      },
+      "expected": {
+        "label": "suspicious",
+        "findings": [
+          {
+            "code": "A01",
+            "segments": [
+              1
+            ],
+            "quote": "Bên tuyển dụng: Chị chỉ xếp lịch cho em sau khi em tự mua bộ nhận diện giá 275.000 đồng do bên chị bán."
+          }
+        ]
+      },
+      "actual": {
+        "tfidf": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 55,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 55,
+                "end": 158,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "not_detected",
+            "catalogVersion": "w05.1",
+            "findings": []
+          }
+        },
+        "phobert": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 55,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 55,
+                "end": 158,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "suspicious",
+            "catalogVersion": "w05.1",
+            "findings": []
+          }
+        }
+      }
+    },
+    {
+      "id": "H03",
+      "group": "chat",
+      "title": "Ứng tiền làm đơn, hứa trả vốn và hoa hồng",
+      "input": {
+        "text": "Ứng viên: Bước đầu ở ca trực đơn em cần làm gì?\nBên tuyển dụng: Em phải nạp tiền để xử lý đơn mỹ phẩm rồi nhận lại vốn và hoa hồng cuối ca.",
+        "segments": [
+          {
+            "start": 0,
+            "end": 48,
+            "role": "applicant"
+          },
+          {
+            "start": 48,
+            "end": 139,
+            "role": "recruiter"
+          }
+        ]
+      },
+      "expected": {
+        "label": "suspicious",
+        "findings": [
+          {
+            "code": "A02",
+            "segments": [
+              1
+            ],
+            "quote": "Bên tuyển dụng: Em phải nạp tiền để xử lý đơn mỹ phẩm rồi nhận lại vốn và hoa hồng cuối ca."
+          }
+        ]
+      },
+      "actual": {
+        "tfidf": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 48,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 48,
+                "end": 139,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "not_detected",
+            "catalogVersion": "w05.1",
+            "findings": [
+              {
+                "code": "A02",
+                "quote": "Bên tuyển dụng: Em phải nạp tiền để xử lý đơn mỹ phẩm rồi nhận lại vốn và hoa hồng cuối ca.",
+                "scenario": {
+                  "title": "Ứng tiền làm nhiệm vụ",
+                  "description": "Người giao việc yêu cầu ứng viên dùng tiền cá nhân để làm nhiệm vụ, kèm lời hứa hoàn tiền hoặc trả hoa hồng.",
+                  "reference": {
+                    "title": "Dân trí ghi nhận vụ chuyển tiền làm nhiệm vụ hưởng hoa hồng",
+                    "summary": "Người phản ánh cho biết anh đăng ký qua quảng cáo tuyển dụng rồi được yêu cầu chuyển tiền để làm nhiệm vụ. Theo lời anh, số tiền phải bỏ ra tăng dần và khoản đã nộp bị mất.",
+                    "sourceUrl": "https://dantri.com.vn/phap-luat/nguoi-dan-ong-bi-lua-dao-khi-tham-gia-lam-nhiem-vu-huong-hoa-hong-20231107145452089.htm"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "phobert": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 48,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 48,
+                "end": 139,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "suspicious",
+            "catalogVersion": "w05.1",
+            "findings": [
+              {
+                "code": "A02",
+                "quote": "Bên tuyển dụng: Em phải nạp tiền để xử lý đơn mỹ phẩm rồi nhận lại vốn và hoa hồng cuối ca.",
+                "scenario": {
+                  "title": "Ứng tiền làm nhiệm vụ",
+                  "description": "Người giao việc yêu cầu ứng viên dùng tiền cá nhân để làm nhiệm vụ, kèm lời hứa hoàn tiền hoặc trả hoa hồng.",
+                  "reference": {
+                    "title": "Dân trí ghi nhận vụ chuyển tiền làm nhiệm vụ hưởng hoa hồng",
+                    "summary": "Người phản ánh cho biết anh đăng ký qua quảng cáo tuyển dụng rồi được yêu cầu chuyển tiền để làm nhiệm vụ. Theo lời anh, số tiền phải bỏ ra tăng dần và khoản đã nộp bị mất.",
+                    "sourceUrl": "https://dantri.com.vn/phap-luat/nguoi-dan-ong-bi-lua-dao-khi-tham-gia-lam-nhiem-vu-huong-hoa-hong-20231107145452089.htm"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "H04",
+      "group": "chat",
+      "title": "Yêu cầu và hoàn tiền ở hai lượt khác nhau",
+      "input": {
+        "text": "Bên tuyển dụng: Em phải dùng tiền cá nhân để hoàn thành đơn nước hoa thử.\nỨng viên: Khoản em vừa phải bỏ ra thì sao ạ?\nBên tuyển dụng: Sau khi hoàn thành đơn đó, bên chị hoàn lại toàn bộ khoản em đã ứng và trả công.",
+        "segments": [
+          {
+            "start": 0,
+            "end": 74,
+            "role": "recruiter"
+          },
+          {
+            "start": 74,
+            "end": 119,
+            "role": "applicant"
+          },
+          {
+            "start": 119,
+            "end": 215,
+            "role": "recruiter"
+          }
+        ]
+      },
+      "expected": {
+        "label": "suspicious",
+        "findings": [
+          {
+            "code": "A02",
+            "segments": [
+              0,
+              1,
+              2
+            ],
+            "quote": "Bên tuyển dụng: Em phải dùng tiền cá nhân để hoàn thành đơn nước hoa thử.\nỨng viên: Khoản em vừa phải bỏ ra thì sao ạ?\nBên tuyển dụng: Sau khi hoàn thành đơn đó, bên chị hoàn lại toàn bộ khoản em đã ứng và trả công."
+          }
+        ]
+      },
+      "actual": {
+        "tfidf": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 74,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 74,
+                "end": 119,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 119,
+                "end": 215,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "not_detected",
+            "catalogVersion": "w05.1",
+            "findings": []
+          }
+        },
+        "phobert": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 74,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 74,
+                "end": 119,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 119,
+                "end": 215,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "suspicious",
+            "catalogVersion": "w05.1",
+            "findings": []
+          }
+        }
+      }
+    },
+    {
+      "id": "H05",
+      "group": "chat",
+      "title": "Hai khoản cho hai mục đích",
+      "input": {
+        "text": "Ứng viên: Chị gửi em điều kiện vào làm và cách nhận đơn được không ạ?\nBên tuyển dụng: Em phải đóng phí hồ sơ để được ký hợp đồng.\nBên tuyển dụng: Em phải ứng tiền cá nhân để xử lý đơn đầu tiên rồi nhận lại vốn và hoa hồng.",
+        "segments": [
+          {
+            "start": 0,
+            "end": 70,
+            "role": "applicant"
+          },
+          {
+            "start": 70,
+            "end": 130,
+            "role": "recruiter"
+          },
+          {
+            "start": 130,
+            "end": 222,
+            "role": "recruiter"
+          }
+        ]
+      },
+      "expected": {
+        "label": "suspicious",
+        "findings": [
+          {
+            "code": "A01",
+            "segments": [
+              1
+            ],
+            "quote": "Bên tuyển dụng: Em phải đóng phí hồ sơ để được ký hợp đồng."
+          },
+          {
+            "code": "A02",
+            "segments": [
+              2
+            ],
+            "quote": "Bên tuyển dụng: Em phải ứng tiền cá nhân để xử lý đơn đầu tiên rồi nhận lại vốn và hoa hồng."
+          }
+        ]
+      },
+      "actual": {
+        "tfidf": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 70,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 70,
+                "end": 130,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 130,
+                "end": 222,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "not_detected",
+            "catalogVersion": "w05.1",
+            "findings": [
+              {
+                "code": "A01",
+                "quote": "Bên tuyển dụng: Em phải đóng phí hồ sơ để được ký hợp đồng.",
+                "scenario": {
+                  "title": "Trả tiền để được nhận việc",
+                  "description": "Bên tuyển dụng yêu cầu ứng viên trả tiền hoặc mua hàng như một điều kiện để được xét tuyển, giữ chỗ hoặc nhận việc.",
+                  "reference": {
+                    "title": "Thanh Niên ghi nhận yêu cầu ký quỹ khi xin việc",
+                    "summary": "Trong buổi tuyển dụng do phóng viên trực tiếp tham gia, người tuyển yêu cầu đóng khoản ký quỹ đồng phục, thiết bị trước khi làm hồ sơ và hợp đồng.",
+                    "sourceUrl": "https://thanhnien.vn/vach-tran-chieu-mao-danh-de-tuyen-dung-lua-tien-sinh-vien-bat-dong-bat-khoc-185230524124448116.htm"
+                  }
+                }
+              },
+              {
+                "code": "A02",
+                "quote": "Bên tuyển dụng: Em phải ứng tiền cá nhân để xử lý đơn đầu tiên rồi nhận lại vốn và hoa hồng.",
+                "scenario": {
+                  "title": "Ứng tiền làm nhiệm vụ",
+                  "description": "Người giao việc yêu cầu ứng viên dùng tiền cá nhân để làm nhiệm vụ, kèm lời hứa hoàn tiền hoặc trả hoa hồng.",
+                  "reference": {
+                    "title": "Dân trí ghi nhận vụ chuyển tiền làm nhiệm vụ hưởng hoa hồng",
+                    "summary": "Người phản ánh cho biết anh đăng ký qua quảng cáo tuyển dụng rồi được yêu cầu chuyển tiền để làm nhiệm vụ. Theo lời anh, số tiền phải bỏ ra tăng dần và khoản đã nộp bị mất.",
+                    "sourceUrl": "https://dantri.com.vn/phap-luat/nguoi-dan-ong-bi-lua-dao-khi-tham-gia-lam-nhiem-vu-huong-hoa-hong-20231107145452089.htm"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "phobert": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 70,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 70,
+                "end": 130,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 130,
+                "end": 222,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "suspicious",
+            "catalogVersion": "w05.1",
+            "findings": [
+              {
+                "code": "A01",
+                "quote": "Bên tuyển dụng: Em phải đóng phí hồ sơ để được ký hợp đồng.",
+                "scenario": {
+                  "title": "Trả tiền để được nhận việc",
+                  "description": "Bên tuyển dụng yêu cầu ứng viên trả tiền hoặc mua hàng như một điều kiện để được xét tuyển, giữ chỗ hoặc nhận việc.",
+                  "reference": {
+                    "title": "Thanh Niên ghi nhận yêu cầu ký quỹ khi xin việc",
+                    "summary": "Trong buổi tuyển dụng do phóng viên trực tiếp tham gia, người tuyển yêu cầu đóng khoản ký quỹ đồng phục, thiết bị trước khi làm hồ sơ và hợp đồng.",
+                    "sourceUrl": "https://thanhnien.vn/vach-tran-chieu-mao-danh-de-tuyen-dung-lua-tien-sinh-vien-bat-dong-bat-khoc-185230524124448116.htm"
+                  }
+                }
+              },
+              {
+                "code": "A02",
+                "quote": "Bên tuyển dụng: Em phải ứng tiền cá nhân để xử lý đơn đầu tiên rồi nhận lại vốn và hoa hồng.",
+                "scenario": {
+                  "title": "Ứng tiền làm nhiệm vụ",
+                  "description": "Người giao việc yêu cầu ứng viên dùng tiền cá nhân để làm nhiệm vụ, kèm lời hứa hoàn tiền hoặc trả hoa hồng.",
+                  "reference": {
+                    "title": "Dân trí ghi nhận vụ chuyển tiền làm nhiệm vụ hưởng hoa hồng",
+                    "summary": "Người phản ánh cho biết anh đăng ký qua quảng cáo tuyển dụng rồi được yêu cầu chuyển tiền để làm nhiệm vụ. Theo lời anh, số tiền phải bỏ ra tăng dần và khoản đã nộp bị mất.",
+                    "sourceUrl": "https://dantri.com.vn/phap-luat/nguoi-dan-ong-bi-lua-dao-khi-tham-gia-lam-nhiem-vu-huong-hoa-hong-20231107145452089.htm"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "H06",
+      "group": "chat",
+      "title": "Lời ứng viên dẫn lại yêu cầu từ nơi khác",
+      "input": {
+        "text": "Ứng viên: Ở chỗ cũ em phải nộp phí để được nhận việc.\nBên tuyển dụng: Bên chị không thu phí khi tuyển, em chỉ cần gửi lịch rảnh.",
+        "segments": [
+          {
+            "start": 0,
+            "end": 54,
+            "role": "applicant"
+          },
+          {
+            "start": 54,
+            "end": 128,
+            "role": "recruiter"
+          }
+        ]
+      },
+      "expected": {
+        "label": "not_detected",
+        "findings": []
+      },
+      "actual": {
+        "tfidf": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 54,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 54,
+                "end": 128,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "not_detected",
+            "catalogVersion": "w05.1",
+            "findings": []
+          }
+        },
+        "phobert": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 54,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 54,
+                "end": 128,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "suspicious",
+            "catalogVersion": "w05.1",
+            "findings": []
+          }
+        }
+      }
+    },
+    {
+      "id": "H07",
+      "group": "chat",
+      "title": "Trao đổi lương và lịch thử việc",
+      "input": {
+        "text": "Bên tuyển dụng: Ca sáng được trả 38.000 đồng mỗi giờ, nhận lương vào cuối tuần.\nỨng viên: Dạ em đến thử ca sáng thứ bảy.",
+        "segments": [
+          {
+            "start": 0,
+            "end": 80,
+            "role": "recruiter"
+          },
+          {
+            "start": 80,
+            "end": 120,
+            "role": "applicant"
+          }
+        ]
+      },
+      "expected": {
+        "label": "not_detected",
+        "findings": []
+      },
+      "actual": {
+        "tfidf": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 80,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 80,
+                "end": 120,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "not_detected",
+            "catalogVersion": "w05.1",
+            "findings": []
+          }
+        },
+        "phobert": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 80,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 80,
+                "end": 120,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "suspicious",
+            "catalogVersion": "w05.1",
+            "findings": []
+          }
+        }
+      }
+    },
+    {
+      "id": "H08",
+      "group": "chat",
+      "title": "Ứng viên tự lo đi lại",
+      "input": {
+        "text": "Ứng viên: Em có cần tự trả tiền xe đến chỗ phỏng vấn không?\nBên tuyển dụng: Chi phí đi lại do em tự lo, công ty không thu phí hồ sơ.",
+        "segments": [
+          {
+            "start": 0,
+            "end": 60,
+            "role": "applicant"
+          },
+          {
+            "start": 60,
+            "end": 132,
+            "role": "recruiter"
+          }
+        ]
+      },
+      "expected": {
+        "label": "not_detected",
+        "findings": []
+      },
+      "actual": {
+        "tfidf": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 60,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 60,
+                "end": 132,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "not_detected",
+            "catalogVersion": "w05.1",
+            "findings": []
+          }
+        },
+        "phobert": {
+          "prepare": {
+            "segments": [
+              {
+                "start": 0,
+                "end": 60,
+                "type": "conversation",
+                "speaker": "unknown"
+              },
+              {
+                "start": 60,
+                "end": 132,
+                "type": "conversation",
+                "speaker": "unknown"
+              }
+            ],
+            "source": "local"
+          },
+          "analyze": {
+            "label": "suspicious",
+            "catalogVersion": "w05.1",
+            "findings": []
+          }
+        }
+      }
+    }
+  ]
+}

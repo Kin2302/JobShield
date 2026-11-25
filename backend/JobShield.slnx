@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="JobShield.Api/JobShield.Api.csproj" />
+  <Project Path="JobShield.Application/JobShield.Application.csproj" />
+  <Project Path="JobShield.Infrastructure/JobShield.Infrastructure.csproj" />
+  <Project Path="JobShield.Tests/JobShield.Tests.csproj" />
+</Solution>

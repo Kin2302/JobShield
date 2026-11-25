@@ -1,0 +1,4 @@
+-r requirements.txt
+torch==2.14.1
+transformers==4.57.6
+py-vncorenlp==0.1.4

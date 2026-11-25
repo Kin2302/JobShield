@@ -1,0 +1,243 @@
+{
+  "version": "2.0",
+  "codebookVersion": "v3",
+  "explanations": {
+    "G01": "Yêu cầu ứng viên trả tiền, đặt cọc hoặc ký quỹ bằng tiền thật làm điều kiện được giao việc, giữ vị trí, tiếp tục thực tập hoặc qua vòng đánh giá.",
+    "G02": "Yêu cầu dùng tiền cá nhân thanh toán đơn hàng/nhiệm vụ kèm lời hứa hoàn vốn hoặc hoa hồng; hoặc buộc nộp thêm khoản riêng mới cho rút tiền.",
+    "G03": "Ép mua gói sản phẩm/nhập hàng để nhận hoặc giữ việc; hoặc yêu cầu/dẫn dụ ứng viên đứng tên đăng ký khoản vay hay hồ sơ tín dụng.",
+    "G04": "Yêu cầu giao mật khẩu, mã OTP (trực tiếp hoặc qua link chỉ định); hoặc đòi gửi cả ảnh CCCD và ảnh/video khuôn mặt cho tài khoản cá nhân trước phỏng vấn.",
+    "G05": "Lôi kéo mở/xác thực tài khoản ngân hàng hoặc ví điện tử đứng tên ứng viên cho bên khác dùng, bàn giao quyền kiểm soát tài khoản, hoặc chuyển tiền hộ.",
+    "G06": "Yêu cầu tắt bảo vệ để cài công cụ, cài app tuyển dụng/chấm công/đào tạo ngoài kho chính thống, bật chia sẻ màn hình khi thao tác tài chính, hoặc cấp quyền điều khiển từ xa.",
+    "G07": "Giữ giấy tờ/điện thoại để ràng buộc hoặc đe dọa buộc di chuyển/làm việc; đòi ảnh/video khỏa thân hay mang tính tình dục; hoặc dọa phát tán dữ liệu riêng tư để ép làm theo.",
+    "G08": "Cảnh báo sớm: tuyển làm nhiệm vụ tạo tương tác ảo trả tiền theo lượt khi chưa đòi ứng vốn; hoặc tin việc online mô tả mơ hồ, hứa thu nhập bất thường và kéo qua kênh liên hệ cá nhân."
+  },
+  "cases": [
+    {
+      "id": "dak-nong-2022",
+      "title": "Từ thả tim có trả tiền đến ứng tiền thanh toán đơn",
+      "matchReasons": {
+        "G08": "Người tham gia được trả công nhỏ cho các lượt tương tác ảo ban đầu.",
+        "G02": "Bên giao việc yêu cầu ứng tiền cá nhân thanh toán đơn và hứa hoàn gốc kèm hoa hồng."
+      },
+      "summary": "Theo lời chị H. kể với PLO, chị đã nhận tiền cho việc thả tim và theo dõi tài khoản TikTok. Sau đó, chị được yêu cầu thanh toán đơn hàng bằng tiền của mình.",
+      "sourceUrl": "https://plo.vn/sap-bay-lua-mat-hon-200-trieu-tu-chieu-tha-tim-tik-tok-post689861.html"
+    },
+    {
+      "id": "thach-ha-2026",
+      "title": "Yêu cầu chuyển thêm tiền để rút vốn và hoa hồng",
+      "matchReasons": {
+        "G02": "Người giao việc đặt điều kiện phải chuyển thêm tiền mới được rút khoản đã hứa trả."
+      },
+      "summary": "Theo Bộ Công an, một phụ nữ làm nhiệm vụ bán hàng đã chuyển hơn 90 triệu đồng. Khi chị muốn nhận lại vốn và hoa hồng, bên giao việc đòi thêm hơn 100 triệu đồng. Ngân hàng và công an đã giúp chị dừng giao dịch này.",
+      "sourceUrl": "https://www.bocongan.gov.vn/bai-viet/kip-thoi-ngan-chan-nguoi-dan-chuyen-hon-100-trieu-dong-cho-doi-tuong-lua-dao-1792405693"
+    },
+    {
+      "id": "phi-nhan-lop",
+      "title": "Ứng tiền để nhận một lớp gia sư",
+      "matchReasons": {
+        "G01": "Bên tuyển đặt việc đóng tiền trước làm điều kiện để nhận hoặc tiếp tục công việc."
+      },
+      "summary": "Một sinh viên kể với Tiền Phong rằng cô đóng 600.000 đồng để nhận lớp. Khi cô tới nơi, địa chỉ được giao là một ngân hàng và số điện thoại liên hệ không gọi được.",
+      "sourceUrl": "https://tienphong.vn/post-1603612.tpo"
+    },
+    {
+      "id": "so-tuyen-gia",
+      "title": "Hồ sơ sơ tuyển mạo danh Vietcombank",
+      "matchReasons": {
+        "G01": "Một giao dịch ký quỹ bằng tiền thật của ứng viên được đặt làm điều kiện sàng lọc hồ sơ."
+      },
+      "summary": "Vietcombank đã công bố hình ảnh thư mời, bài sơ loại và thông báo kết quả giả mạo. Trong quy trình được ngân hàng ghi nhận, ứng viên được yêu cầu đánh giá sản phẩm chứng chỉ quỹ rồi nộp tiền ký quỹ.",
+      "sourceUrl": "https://www.vietcombank.com.vn/vi-VN/Trang-thong-tin-dien-tu/Articles/2026/09/16/20260914_MKTTT_Canh-bao-lua-dao-mao-danh-tuyen-dung-VCB"
+    },
+    {
+      "id": "vay-the-chan",
+      "title": "Vay tiền để đóng khoản thế chân trước khi làm việc",
+      "matchReasons": {
+        "G03": "Người tìm việc được hướng dẫn đứng tên vay qua ứng dụng để đóng khoản thế chân."
+      },
+      "summary": "Theo điều tra của Nhân Dân, một người tìm việc đóng gói sản phẩm được hướng dẫn vay qua ứng dụng để đóng tiền thế chân. Người này kể rằng sau đó phải vay thêm và vẫn gánh nợ.",
+      "sourceUrl": "https://nhandan.vn/sap-bay-mo-hinh-lua-dao-nguoi-lao-dong-lao-dao-ky-1-post998767.html"
+    },
+    {
+      "id": "mua-bo-san-pham",
+      "title": "Mua bộ sản phẩm mới được làm việc chính thức",
+      "matchReasons": {
+        "G03": "Bên tuyển yêu cầu mua gói sản phẩm như một điều kiện để nhận hoặc giữ việc."
+      },
+      "summary": "Thanh Niên ghi nhận một nữ sinh được yêu cầu đóng 11 triệu đồng mua bộ sản phẩm. Khi giao tiền, cô được đưa giấy mua hàng viết tay để ký.",
+      "sourceUrl": "https://thanhnien.vn/da-cap-lua-dao-o-tphcm-cam-bay-sinh-vien-mua-nhap-hoc-185250907073814014.htm"
+    },
+    {
+      "id": "gia-su-vay-nhanh-2026",
+      "title": "Bẫy vay tiền khi tìm việc gia sư trên mạng xã hội",
+      "matchReasons": {
+        "G03": "Dưới cớ xác nhận nhận lương và khắc phục lỗi chuyển khoản, ứng viên bị dẫn dụ phát sinh khoản vay tín dụng đứng tên mình."
+      },
+      "summary": "Báo Lào Cai ghi nhận trường hợp một nữ sinh tìm việc gia sư trên Facebook bị đối tượng tự xưng phụ huynh gửi ảnh chuyển khoản giả và thúc thao tác 'xác nhận lỗi', làm phát sinh khoản vay gần 55 triệu đồng trên ứng dụng.",
+      "sourceUrl": "https://baolaocai.vn/canh-bao-bay-vay-tien-khi-sinh-vien-tim-viec-gia-su-tren-facebook-post911728.html"
+    },
+    {
+      "id": "tai-khoan-chuyen-tien",
+      "title": "Mở tài khoản theo lời mời làm công việc chuyển tiền",
+      "matchReasons": {
+        "G04": "Người giao việc yêu cầu thông tin đăng nhập hoặc mã xác thực OTP.",
+        "G05": "Người tìm việc mở hoặc bàn giao tài khoản đứng tên mình và nhận chuyển tiền hộ cho bên thứ ba."
+      },
+      "summary": "Theo tài liệu điều tra do Bộ Công an công bố, hai người tìm việc mở tài khoản và giao thông tin đăng nhập. Các tài khoản này được dùng nhận và chuyển tiền đánh bạc; người đứng tên còn được yêu cầu xác thực một số giao dịch.",
+      "sourceUrl": "https://www.mps.gov.vn/bai-viet/canh-giac-voi-chieu-tro-tuyen-dung-viec-nhe-luong-cao-de-thue-muon-tai-khoan-ngan-hang-1792292719"
+    },
+    {
+      "id": "phan-mem-hop",
+      "title": "Lời mời phỏng vấn kèm phần mềm điều khiển từ xa",
+      "matchReasons": {
+        "G06": "Lời mời tuyển dụng yêu cầu cài đặt công cụ điều khiển thiết bị từ xa."
+      },
+      "summary": "Trong một vụ ở nước ngoài do Huntress ghi nhận, Matt Caldwell nhận email mạo danh nhà tuyển dụng của Pepsi, mời tải ứng dụng họp. Khi kiểm tra, ông xác định đó là phần mềm quản trị từ xa.",
+      "sourceUrl": "https://www.huntress.com/blog/rmm-abuse-trusted-tools-untrusted-hands"
+    },
+    {
+      "id": "app-tuyen-dung-vnvc-2026",
+      "title": "Giả mạo tuyển dụng yêu cầu cài ứng dụng lạ và thu phí hồ sơ",
+      "matchReasons": {
+        "G06": "Đối tượng yêu cầu tải và cài đặt ứng dụng lạ dưới tên 'app tuyển dụng/chấm công/đào tạo'.",
+        "G01": "Yêu cầu nộp phí xét tuyển, đào tạo, hồ sơ hoặc đồng phục trước khi nhận việc."
+      },
+      "summary": "Hệ thống Tiêm chủng VNVC cảnh báo thủ đoạn mạo danh bộ phận nhân sự nhắn tin qua mạng xã hội yêu cầu ứng viên nộp phí hồ sơ hoặc cài đặt các ứng dụng không rõ nguồn gốc mang tên ứng dụng tuyển dụng, đào tạo hay chấm công.",
+      "sourceUrl": "https://vnvc.vn/tin-tuc-hoat-dong/canh-bao-gia-mao-tuyen-dung-vnvc"
+    },
+    {
+      "id": "chia-se-man-hinh-ulis-2026",
+      "title": "Dụ bật chia sẻ màn hình để vay qua ví và ép chụp ảnh nhạy cảm",
+      "matchReasons": {
+        "G06": "Yêu cầu bật chia sẻ màn hình điện thoại khi thao tác ứng dụng ngân hàng hoặc ví điện tử.",
+        "G03": "Dẫn dụ ứng viên đứng tên vay tiền qua ví điện tử trong lúc chia sẻ màn hình.",
+        "G07": "Dùng cớ xác minh danh tính để yêu cầu ảnh cơ thể/nhạy cảm nhằm khống chế nạn nhân."
+      },
+      "summary": "ĐH Ngoại ngữ – ĐHQGHN (ULIS) cảnh báo thủ đoạn nhắn tin yêu cầu sinh viên bật chia sẻ màn hình điện thoại để hướng dẫn thao tác vay trên ví điện tử và ngân hàng, hoặc đòi ảnh nhạy cảm dưới cớ xác minh.",
+      "sourceUrl": "https://student.ulis.vnu.edu.vn/canh-bao-cac-thu-doan-lua-dao-nham-vao-sinh-vien-nhan-dien-de-tu-bao-ve-minh"
+    },
+    {
+      "id": "kiem-soat-lao-dong",
+      "title": "Người lao động bị ép tiếp tục làm việc ở Campuchia",
+      "matchReasons": {
+        "G07": "Người lao động bị hạn chế tự do, giữ giấy tờ và chịu sức ép đe dọa buộc tiếp tục làm việc."
+      },
+      "summary": "Công an tỉnh Vĩnh Long ghi nhận lời kể của những người trở về từ Campuchia. Một người kể phải làm cả khi bị bệnh. Một người khác kể bị đánh khi làm sai và chứng kiến người bỏ trốn bị bắt lại.",
+      "sourceUrl": "https://www.bocongan.gov.vn/bai-viet/cong-an-tinh-vinh-long-canh-giac-voi-bay-viec-nhe-luong-cao-1780907526"
+    },
+    {
+      "id": "ho-so-suc-khoe",
+      "title": "Lấy lý do khám sức khỏe để đòi ảnh nhạy cảm",
+      "matchReasons": {
+        "G07": "Người tuyển đòi hình ảnh nhạy cảm và dọa phát tán thông tin riêng tư để buộc nạn nhân làm theo."
+      },
+      "summary": "Theo lời trình báo được Khoa học và Đời sống thuật lại, một người tìm việc được yêu cầu gửi ảnh với lý do kiểm tra sức khỏe. Sau khi có ảnh, người liên hệ dọa đăng lên mạng để ép gửi thêm.",
+      "sourceUrl": "https://khoahocdoisong.vn/lua-dao-kham-suc-khoe-tuyen-dung-de-lay-anh-nhay-cam-khong-che-nan-nhan-post2148569086.html"
+    },
+    {
+      "id": "du-lieu-khuon-mat",
+      "title": "Tài khoản tuyển cộng tác viên đòi dữ liệu khuôn mặt",
+      "matchReasons": {
+        "G04": "Người liên hệ đòi dữ liệu khuôn mặt và giấy tờ định danh của ứng viên qua trao đổi riêng trước phỏng vấn."
+      },
+      "summary": "VTV ghi nhận các tài khoản mạo danh người làm báo yêu cầu ứng viên gửi ảnh hoặc video khuôn mặt và hối thúc khi ứng viên xin gửi sau. Điểm đối chiếu ở đây là yêu cầu về dữ liệu khuôn mặt qua kênh cá nhân.",
+      "sourceUrl": "https://vtv.vn/gia-tuyen-dung-bao-chi-de-thu-thap-du-lieu-khuon-mat-100260525103950021.htm"
+    },
+    {
+      "id": "quang-cao-viec-online",
+      "title": "Website quảng cáo việc tại nhà với thu nhập theo ngày",
+      "matchReasons": {
+        "G08": "Lời mời nêu mức thu nhập cao bất thường theo ngày nhưng mô tả công việc mơ hồ và kéo liên hệ kênh riêng."
+      },
+      "summary": "Bài đăng trên cổng Sở Tư pháp Quảng Ngãi ghi nhận một website quảng bá mức 500.000 đến 3 triệu đồng mỗi ngày, nhấn mạnh chỉ cần điện thoại và có thể làm ở bất cứ đâu.",
+      "sourceUrl": "https://stp.quangngai.gov.vn/danh-muc-cot-phai/tin-tuc/trat-tu-an-toan-xa-hoi/-viec-nhe-luong-cao-va-cu-lua-tien-ty.html"
+    }
+  ],
+  "possibleNextSteps": [
+    {
+      "id": "tra-cong-nhiem-vu-dau",
+      "showWhenAny": [
+        "G08"
+      ],
+      "hideWhenAny": [
+        "G02"
+      ],
+      "text": "Nếu nhận làm tương tác ảo, bạn có thể được trả một khoản nhỏ cho những lượt đầu tiên để tạo niềm tin.",
+      "sourceUrl": "https://plo.vn/sap-bay-lua-mat-hon-200-trieu-tu-chieu-tha-tim-tik-tok-post689861.html"
+    },
+    {
+      "id": "ung-tien-cho-don",
+      "showWhenAny": [
+        "G08"
+      ],
+      "hideWhenAny": [
+        "G02"
+      ],
+      "text": "Sau vài lượt đầu, bạn có thể được mời vào nhóm khoe thu nhập và giao nhiệm vụ mới đòi dùng tiền cá nhân để thanh toán đơn hàng.",
+      "sourceUrl": "https://plo.vn/sap-bay-lua-mat-hon-200-trieu-tu-chieu-tha-tim-tik-tok-post689861.html"
+    },
+    {
+      "id": "tang-tien-ung-va-nop-them",
+      "showWhenAny": [
+        "G02"
+      ],
+      "hideWhenAny": [],
+      "text": "Nếu đã ứng tiền làm nhiệm vụ, bên giao việc có thể yêu cầu ứng số tiền lớn hơn hoặc nộp thêm phí giải ngân/xác minh để rút khoản đã hứa trả.",
+      "sourceUrl": "https://www.bocongan.gov.vn/bai-viet/kip-thoi-ngan-chan-nguoi-dan-chuyen-hon-100-trieu-dong-cho-doi-tuong-lua-dao-1792405693"
+    },
+    {
+      "id": "kho-lien-he-sau-thu-phi",
+      "showWhenAny": [
+        "G01"
+      ],
+      "hideWhenAny": [],
+      "text": "Nếu chuyển tiền phí hoặc ký quỹ trước để nhận việc, bạn có thể nhận kết quả giả hoặc đến địa chỉ được giao mà không liên lạc lại được.",
+      "sourceUrl": "https://tienphong.vn/post-1603612.tpo"
+    },
+    {
+      "id": "giao-tien-vay-hoac-mua-goi",
+      "showWhenAny": [
+        "G03"
+      ],
+      "hideWhenAny": [],
+      "text": "Nếu đứng tên vay qua ứng dụng hoặc mua gói sản phẩm, nghĩa vụ trả nợ vẫn gắn với tên bạn và bên tuyển có thể thúc vay thêm.",
+      "sourceUrl": "https://nhandan.vn/sap-bay-mo-hinh-lua-dao-nguoi-lao-dong-lao-dao-ky-1-post998767.html"
+    },
+    {
+      "id": "thuc-gui-du-lieu-ekyc",
+      "showWhenAny": [
+        "G04"
+      ],
+      "hideWhenAny": [],
+      "text": "Nếu bạn chần chừ gửi OTP, mật khẩu hoặc dữ liệu khuôn mặt, người liên hệ có thể hối thúc với lý do sắp chốt danh sách hoặc cần đối soát chi lương.",
+      "sourceUrl": "https://vtv.vn/gia-tuyen-dung-bao-chi-de-thu-thap-du-lieu-khuon-mat-100260525103950021.htm"
+    },
+    {
+      "id": "xac-thuc-giao-dich-ho",
+      "showWhenAny": [
+        "G05"
+      ],
+      "hideWhenAny": [],
+      "text": "Nếu mở hoặc bàn giao tài khoản để nhận chuyển tiền hộ, người giao việc có thể tiếp tục yêu cầu bạn xác thực giao dịch bằng khuôn mặt hoặc OTP.",
+      "sourceUrl": "https://www.mps.gov.vn/bai-viet/canh-giac-voi-chieu-tro-tuyen-dung-viec-nhe-luong-cao-de-thue-muon-tai-khoan-ngan-hang-1792292719"
+    },
+    {
+      "id": "truy-cap-tep-va-thao-tac-tai-chinh",
+      "showWhenAny": [
+        "G06"
+      ],
+      "hideWhenAny": [],
+      "text": "Nếu cài ứng dụng lạ, bật chia sẻ màn hình hoặc cấp quyền điều khiển từ xa, đối tượng có thể đọc dữ liệu cá nhân hoặc dẫn dụ thao tác trên ứng dụng ngân hàng.",
+      "sourceUrl": "https://student.ulis.vnu.edu.vn/canh-bao-cac-thu-doan-lua-dao-nham-vao-sinh-vien-nhan-dien-de-tu-bao-ve-minh"
+    },
+    {
+      "id": "ep-tiep-tuc-va-khong-che",
+      "showWhenAny": [
+        "G07"
+      ],
+      "hideWhenAny": [],
+      "text": "Nếu bị giữ giấy tờ hoặc đã gửi hình ảnh nhạy cảm, đối tượng có thể đe dọa phát tán hoặc ép tiếp tục làm việc để khống chế.",
+      "sourceUrl": "https://khoahocdoisong.vn/lua-dao-kham-suc-khoe-tuyen-dung-de-lay-anh-nhay-cam-khong-che-nan-nhan-post2148569086.html"
+    }
+  ]
+}

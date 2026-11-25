@@ -1,0 +1,654 @@
+{
+  "dataset": "jobshield-w05-model-comparison",
+  "created": "2026-11-11",
+  "origin": "synthetic",
+  "codebook": "jobshield-v0.2",
+  "humanReviewed": false,
+  "description": "Ca mô phỏng phục vụ kiểm tra nội bộ. Mỗi đoạn là một dòng trong đầu vào. Chỉ số đoạn bắt đầu từ 0. Một bằng chứng có thể gồm nhiều đoạn liền nhau.",
+  "cases": [
+    {
+      "id": "T01",
+      "group": "post",
+      "title": "Phí duyệt hồ sơ cho ca trực thư viện",
+      "segments": [
+        {
+          "role": "job_post",
+          "text": "Tuyển sinh viên trực quầy mượn sách theo ca tối."
+        },
+        {
+          "role": "job_post",
+          "text": "Ứng viên phải đóng phí xét hồ sơ 160.000 đồng để được xét tuyển."
+        }
+      ],
+      "expected": {
+        "label": "suspicious",
+        "findings": [
+          {
+            "code": "A01",
+            "segments": [
+              1
+            ],
+            "quote": "Ứng viên phải đóng phí xét hồ sơ 160.000 đồng để được xét tuyển."
+          }
+        ]
+      }
+    },
+    {
+      "id": "T02",
+      "group": "post",
+      "title": "Giữ suất phụ lễ hội bằng khoản ký quỹ",
+      "segments": [
+        {
+          "role": "job_post",
+          "text": "Cần người hỗ trợ quầy đổi vé trong hai ngày hội sách."
+        },
+        {
+          "role": "job_post",
+          "text": "Muốn giữ được suất làm cuối tuần, người đăng ký gửi trước 240.000 đồng vào tài khoản phụ trách."
+        }
+      ],
+      "expected": {
+        "label": "suspicious",
+        "findings": [
+          {
+            "code": "A01",
+            "segments": [
+              1
+            ],
+            "quote": "Muốn giữ được suất làm cuối tuần, người đăng ký gửi trước 240.000 đồng vào tài khoản phụ trách."
+          }
+        ]
+      }
+    },
+    {
+      "id": "T03",
+      "group": "post",
+      "title": "Dùng tiền cá nhân để xử lý đơn",
+      "segments": [
+        {
+          "role": "job_post",
+          "text": "Tuyển cộng tác viên xử lý đơn nội thất trong ca chiều."
+        },
+        {
+          "role": "job_post",
+          "text": "Ứng viên phải dùng tiền cá nhân để xử lý đơn và sẽ nhận lại vốn sau khi xác nhận giao hàng."
+        }
+      ],
+      "expected": {
+        "label": "suspicious",
+        "findings": [
+          {
+            "code": "A02",
+            "segments": [
+              1
+            ],
+            "quote": "Ứng viên phải dùng tiền cá nhân để xử lý đơn và sẽ nhận lại vốn sau khi xác nhận giao hàng."
+          }
+        ]
+      }
+    },
+    {
+      "id": "T04",
+      "group": "post",
+      "title": "Tự trả tiền cho phiếu mua thử",
+      "segments": [
+        {
+          "role": "job_post",
+          "text": "Tuyển cộng tác viên kiểm tra quy trình mua vé trực tuyến."
+        },
+        {
+          "role": "job_post",
+          "text": "Mỗi lượt kiểm tra yêu cầu bạn lấy tiền túi thanh toán một vé, sau đó hệ thống hoàn lại đúng giá vé kèm 12% công."
+        }
+      ],
+      "expected": {
+        "label": "suspicious",
+        "findings": [
+          {
+            "code": "A02",
+            "segments": [
+              1
+            ],
+            "quote": "Mỗi lượt kiểm tra yêu cầu bạn lấy tiền túi thanh toán một vé, sau đó hệ thống hoàn lại đúng giá vé kèm 12% công."
+          }
+        ]
+      }
+    },
+    {
+      "id": "T05",
+      "group": "post",
+      "title": "Thu tiền để xếp ca và yêu cầu ứng tiền làm đơn",
+      "segments": [
+        {
+          "role": "job_post",
+          "text": "Tuyển cộng tác viên xử lý đơn thiết bị gia dụng."
+        },
+        {
+          "role": "job_post",
+          "text": "Người đăng ký phải nộp phí đồng phục trước khi được xếp ca."
+        },
+        {
+          "role": "job_post",
+          "text": "Ứng viên phải nạp tiền cá nhân để làm nhiệm vụ kiểm đơn rồi nhận lại vốn và hoa hồng."
+        }
+      ],
+      "expected": {
+        "label": "suspicious",
+        "findings": [
+          {
+            "code": "A01",
+            "segments": [
+              1
+            ],
+            "quote": "Người đăng ký phải nộp phí đồng phục trước khi được xếp ca."
+          },
+          {
+            "code": "A02",
+            "segments": [
+              2
+            ],
+            "quote": "Ứng viên phải nạp tiền cá nhân để làm nhiệm vụ kiểm đơn rồi nhận lại vốn và hoa hồng."
+          }
+        ]
+      }
+    },
+    {
+      "id": "T06",
+      "group": "post",
+      "title": "Tin tuyển ca bán hàng thông thường",
+      "segments": [
+        {
+          "role": "job_post",
+          "text": "Tiệm bánh cần hai bạn phụ quầy từ 17 giờ đến 21 giờ, trả lương theo giờ."
+        },
+        {
+          "role": "job_post",
+          "text": "Gửi lịch rảnh để cửa hàng hẹn phỏng vấn trực tiếp."
+        }
+      ],
+      "expected": {
+        "label": "not_detected",
+        "findings": []
+      }
+    },
+    {
+      "id": "T07",
+      "group": "post",
+      "title": "Nêu rõ không thu phí tuyển dụng",
+      "segments": [
+        {
+          "role": "job_post",
+          "text": "Tuyển nhân viên soạn hàng theo ca, lương 32.000 đồng mỗi giờ."
+        },
+        {
+          "role": "job_post",
+          "text": "Không thu phí đồng phục hay phí xét hồ sơ khi tuyển dụng."
+        }
+      ],
+      "expected": {
+        "label": "not_detected",
+        "findings": []
+      }
+    },
+    {
+      "id": "T08",
+      "group": "post",
+      "title": "Công ty cấp kinh phí thực hiện việc",
+      "segments": [
+        {
+          "role": "job_post",
+          "text": "Tuyển nhân viên đi lấy hàng mẫu trong nội thành."
+        },
+        {
+          "role": "job_post",
+          "text": "Công ty sẽ ứng tiền mua hàng mẫu, nhân viên giữ hóa đơn để quyết toán."
+        }
+      ],
+      "expected": {
+        "label": "not_detected",
+        "findings": []
+      }
+    },
+    {
+      "id": "M01",
+      "group": "mixed",
+      "title": "Tin tuyển mở đầu, phí hồ sơ xuất hiện trong chat",
+      "segments": [
+        {
+          "role": "job_post",
+          "text": "Nhà in tuyển sinh viên sắp xếp đơn in buổi sáng."
+        },
+        {
+          "role": "applicant",
+          "text": "Ứng viên: Em có thể bắt đầu thứ hai được không ạ?"
+        },
+        {
+          "role": "recruiter",
+          "text": "Bên tuyển dụng: Em cần nộp phí hồ sơ 185.000 đồng trước khi được xếp ca."
+        }
+      ],
+      "expected": {
+        "label": "suspicious",
+        "findings": [
+          {
+            "code": "A01",
+            "segments": [
+              2
+            ],
+            "quote": "Bên tuyển dụng: Em cần nộp phí hồ sơ 185.000 đồng trước khi được xếp ca."
+          }
+        ]
+      }
+    },
+    {
+      "id": "M02",
+      "group": "mixed",
+      "title": "Khoản giữ chỗ được xác nhận qua hai lượt",
+      "segments": [
+        {
+          "role": "job_post",
+          "text": "Tuyển trợ lý gian hàng tại hội chợ cuối tuần."
+        },
+        {
+          "role": "applicant",
+          "text": "Ứng viên: Em phải chuyển trước 220.000 đồng mới được giữ suất phụ gian hàng đúng không ạ?"
+        },
+        {
+          "role": "recruiter",
+          "text": "Bên tuyển dụng: Đúng rồi, bên chị chỉ giữ suất khi nhận được khoản đó."
+        }
+      ],
+      "expected": {
+        "label": "suspicious",
+        "findings": [
+          {
+            "code": "A01",
+            "segments": [
+              1,
+              2
+            ],
+            "quote": "Ứng viên: Em phải chuyển trước 220.000 đồng mới được giữ suất phụ gian hàng đúng không ạ?\nBên tuyển dụng: Đúng rồi, bên chị chỉ giữ suất khi nhận được khoản đó."
+          }
+        ]
+      }
+    },
+    {
+      "id": "M03",
+      "group": "mixed",
+      "title": "Ứng tiền kiểm đơn được nêu ở chat",
+      "segments": [
+        {
+          "role": "job_post",
+          "text": "Tuyển cộng tác viên đối chiếu đơn hàng đồ thể thao."
+        },
+        {
+          "role": "applicant",
+          "text": "Ứng viên: Khi có đơn thì em thao tác thế nào?"
+        },
+        {
+          "role": "recruiter",
+          "text": "Bên tuyển dụng: Em phải ứng tiền để hoàn thành đơn thử rồi nhận lại vốn và hoa hồng."
+        }
+      ],
+      "expected": {
+        "label": "suspicious",
+        "findings": [
+          {
+            "code": "A02",
+            "segments": [
+              2
+            ],
+            "quote": "Bên tuyển dụng: Em phải ứng tiền để hoàn thành đơn thử rồi nhận lại vốn và hoa hồng."
+          }
+        ]
+      }
+    },
+    {
+      "id": "M04",
+      "group": "mixed",
+      "title": "Trả trước bằng ví cá nhân khi thử đặt món",
+      "segments": [
+        {
+          "role": "job_post",
+          "text": "Tuyển cộng tác viên kiểm tra quy trình đặt món, làm theo lượt."
+        },
+        {
+          "role": "recruiter",
+          "text": "Bên tuyển dụng: Để thực hiện mỗi lượt thử, em dùng số dư ví cá nhân trả trước tiền món, bên chị chuyển lại toàn bộ tiền và phần công sau khi xong."
+        }
+      ],
+      "expected": {
+        "label": "suspicious",
+        "findings": [
+          {
+            "code": "A02",
+            "segments": [
+              1
+            ],
+            "quote": "Bên tuyển dụng: Để thực hiện mỗi lượt thử, em dùng số dư ví cá nhân trả trước tiền món, bên chị chuyển lại toàn bộ tiền và phần công sau khi xong."
+          }
+        ]
+      }
+    },
+    {
+      "id": "M05",
+      "group": "mixed",
+      "title": "Phí vào ca trong tin, tiền ứng nhiệm vụ trong chat",
+      "segments": [
+        {
+          "role": "job_post",
+          "text": "Tuyển người hỗ trợ gian hàng bán đồ thủ công trực tuyến."
+        },
+        {
+          "role": "job_post",
+          "text": "Ứng viên phải nộp khoản phí xác nhận trước khi được xếp ca."
+        },
+        {
+          "role": "applicant",
+          "text": "Ứng viên: Khi vào ca em làm phần nào?"
+        },
+        {
+          "role": "recruiter",
+          "text": "Bên tuyển dụng: Em phải nạp tiền cá nhân để chốt đơn và sẽ nhận lại vốn sau mỗi nhiệm vụ."
+        }
+      ],
+      "expected": {
+        "label": "suspicious",
+        "findings": [
+          {
+            "code": "A01",
+            "segments": [
+              1
+            ],
+            "quote": "Ứng viên phải nộp khoản phí xác nhận trước khi được xếp ca."
+          },
+          {
+            "code": "A02",
+            "segments": [
+              3
+            ],
+            "quote": "Bên tuyển dụng: Em phải nạp tiền cá nhân để chốt đơn và sẽ nhận lại vốn sau mỗi nhiệm vụ."
+          }
+        ]
+      }
+    },
+    {
+      "id": "M06",
+      "group": "mixed",
+      "title": "Ứng viên hỏi phí, tuyển dụng phủ định",
+      "segments": [
+        {
+          "role": "job_post",
+          "text": "Quán ăn tuyển người chuẩn bị bàn vào ca tối."
+        },
+        {
+          "role": "applicant",
+          "text": "Ứng viên: Em phải nộp phí trước khi nhận việc không ạ?"
+        },
+        {
+          "role": "recruiter",
+          "text": "Bên tuyển dụng: Không thu phí tuyển dụng, em chỉ cần mang CV đến buổi gặp."
+        }
+      ],
+      "expected": {
+        "label": "not_detected",
+        "findings": []
+      }
+    },
+    {
+      "id": "M07",
+      "group": "mixed",
+      "title": "Phỏng vấn và xác nhận ca bình thường",
+      "segments": [
+        {
+          "role": "job_post",
+          "text": "Tuyển sinh viên hỗ trợ nhập kho ba buổi mỗi tuần."
+        },
+        {
+          "role": "recruiter",
+          "text": "Bên tuyển dụng: Em chọn một trong hai ca sáng rồi gửi lịch rảnh nhé."
+        },
+        {
+          "role": "applicant",
+          "text": "Ứng viên: Dạ em đăng ký ca sáng thứ tư."
+        }
+      ],
+      "expected": {
+        "label": "not_detected",
+        "findings": []
+      }
+    },
+    {
+      "id": "M08",
+      "group": "mixed",
+      "title": "Kinh phí mua vật tư từ công ty",
+      "segments": [
+        {
+          "role": "job_post",
+          "text": "Tuyển phụ việc trang trí sự kiện bán thời gian."
+        },
+        {
+          "role": "applicant",
+          "text": "Ứng viên: Ai thanh toán vật tư cho buổi dựng gian hàng ạ?"
+        },
+        {
+          "role": "recruiter",
+          "text": "Bên tuyển dụng: Công ty sẽ ứng tiền mua vật tư để em làm nhiệm vụ, em chỉ nộp hóa đơn sau buổi."
+        }
+      ],
+      "expected": {
+        "label": "not_detected",
+        "findings": []
+      }
+    },
+    {
+      "id": "H01",
+      "group": "chat",
+      "title": "Yêu cầu đóng cọc để giữ chỗ",
+      "segments": [
+        {
+          "role": "applicant",
+          "text": "Ứng viên: Em còn có thể đăng ký ca tối thứ sáu không ạ?"
+        },
+        {
+          "role": "recruiter",
+          "text": "Bên tuyển dụng: Em phải đóng cọc 125.000 đồng để giữ chỗ ca tối thứ sáu."
+        }
+      ],
+      "expected": {
+        "label": "suspicious",
+        "findings": [
+          {
+            "code": "A01",
+            "segments": [
+              1
+            ],
+            "quote": "Bên tuyển dụng: Em phải đóng cọc 125.000 đồng để giữ chỗ ca tối thứ sáu."
+          }
+        ]
+      }
+    },
+    {
+      "id": "H02",
+      "group": "chat",
+      "title": "Mua bộ nhận diện mới được xếp lịch",
+      "segments": [
+        {
+          "role": "applicant",
+          "text": "Ứng viên: Bao giờ em được xếp lịch ở quầy thông tin ạ?"
+        },
+        {
+          "role": "recruiter",
+          "text": "Bên tuyển dụng: Chị chỉ xếp lịch cho em sau khi em tự mua bộ nhận diện giá 275.000 đồng do bên chị bán."
+        }
+      ],
+      "expected": {
+        "label": "suspicious",
+        "findings": [
+          {
+            "code": "A01",
+            "segments": [
+              1
+            ],
+            "quote": "Bên tuyển dụng: Chị chỉ xếp lịch cho em sau khi em tự mua bộ nhận diện giá 275.000 đồng do bên chị bán."
+          }
+        ]
+      }
+    },
+    {
+      "id": "H03",
+      "group": "chat",
+      "title": "Ứng tiền làm đơn, hứa trả vốn và hoa hồng",
+      "segments": [
+        {
+          "role": "applicant",
+          "text": "Ứng viên: Bước đầu ở ca trực đơn em cần làm gì?"
+        },
+        {
+          "role": "recruiter",
+          "text": "Bên tuyển dụng: Em phải nạp tiền để xử lý đơn mỹ phẩm rồi nhận lại vốn và hoa hồng cuối ca."
+        }
+      ],
+      "expected": {
+        "label": "suspicious",
+        "findings": [
+          {
+            "code": "A02",
+            "segments": [
+              1
+            ],
+            "quote": "Bên tuyển dụng: Em phải nạp tiền để xử lý đơn mỹ phẩm rồi nhận lại vốn và hoa hồng cuối ca."
+          }
+        ]
+      }
+    },
+    {
+      "id": "H04",
+      "group": "chat",
+      "title": "Yêu cầu và hoàn tiền ở hai lượt khác nhau",
+      "segments": [
+        {
+          "role": "recruiter",
+          "text": "Bên tuyển dụng: Em phải dùng tiền cá nhân để hoàn thành đơn nước hoa thử."
+        },
+        {
+          "role": "applicant",
+          "text": "Ứng viên: Khoản em vừa phải bỏ ra thì sao ạ?"
+        },
+        {
+          "role": "recruiter",
+          "text": "Bên tuyển dụng: Sau khi hoàn thành đơn đó, bên chị hoàn lại toàn bộ khoản em đã ứng và trả công."
+        }
+      ],
+      "expected": {
+        "label": "suspicious",
+        "findings": [
+          {
+            "code": "A02",
+            "segments": [
+              0,
+              1,
+              2
+            ],
+            "quote": "Bên tuyển dụng: Em phải dùng tiền cá nhân để hoàn thành đơn nước hoa thử.\nỨng viên: Khoản em vừa phải bỏ ra thì sao ạ?\nBên tuyển dụng: Sau khi hoàn thành đơn đó, bên chị hoàn lại toàn bộ khoản em đã ứng và trả công."
+          }
+        ]
+      }
+    },
+    {
+      "id": "H05",
+      "group": "chat",
+      "title": "Hai khoản cho hai mục đích",
+      "segments": [
+        {
+          "role": "applicant",
+          "text": "Ứng viên: Chị gửi em điều kiện vào làm và cách nhận đơn được không ạ?"
+        },
+        {
+          "role": "recruiter",
+          "text": "Bên tuyển dụng: Em phải đóng phí hồ sơ để được ký hợp đồng."
+        },
+        {
+          "role": "recruiter",
+          "text": "Bên tuyển dụng: Em phải ứng tiền cá nhân để xử lý đơn đầu tiên rồi nhận lại vốn và hoa hồng."
+        }
+      ],
+      "expected": {
+        "label": "suspicious",
+        "findings": [
+          {
+            "code": "A01",
+            "segments": [
+              1
+            ],
+            "quote": "Bên tuyển dụng: Em phải đóng phí hồ sơ để được ký hợp đồng."
+          },
+          {
+            "code": "A02",
+            "segments": [
+              2
+            ],
+            "quote": "Bên tuyển dụng: Em phải ứng tiền cá nhân để xử lý đơn đầu tiên rồi nhận lại vốn và hoa hồng."
+          }
+        ]
+      }
+    },
+    {
+      "id": "H06",
+      "group": "chat",
+      "title": "Lời ứng viên dẫn lại yêu cầu từ nơi khác",
+      "segments": [
+        {
+          "role": "applicant",
+          "text": "Ứng viên: Ở chỗ cũ em phải nộp phí để được nhận việc."
+        },
+        {
+          "role": "recruiter",
+          "text": "Bên tuyển dụng: Bên chị không thu phí khi tuyển, em chỉ cần gửi lịch rảnh."
+        }
+      ],
+      "expected": {
+        "label": "not_detected",
+        "findings": []
+      }
+    },
+    {
+      "id": "H07",
+      "group": "chat",
+      "title": "Trao đổi lương và lịch thử việc",
+      "segments": [
+        {
+          "role": "recruiter",
+          "text": "Bên tuyển dụng: Ca sáng được trả 38.000 đồng mỗi giờ, nhận lương vào cuối tuần."
+        },
+        {
+          "role": "applicant",
+          "text": "Ứng viên: Dạ em đến thử ca sáng thứ bảy."
+        }
+      ],
+      "expected": {
+        "label": "not_detected",
+        "findings": []
+      }
+    },
+    {
+      "id": "H08",
+      "group": "chat",
+      "title": "Ứng viên tự lo đi lại",
+      "segments": [
+        {
+          "role": "applicant",
+          "text": "Ứng viên: Em có cần tự trả tiền xe đến chỗ phỏng vấn không?"
+        },
+        {
+          "role": "recruiter",
+          "text": "Bên tuyển dụng: Chi phí đi lại do em tự lo, công ty không thu phí hồ sơ."
+        }
+      ],
+      "expected": {
+        "label": "not_detected",
+        "findings": []
+      }
+    }
+  ]
+}
