@@ -1,119 +1,159 @@
-import React, { useState } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
+import HomePage from './HomePage.jsx';
+import DetectiveLoading from './DetectiveLoading.jsx';
+import ResultTree from './ResultTree.jsx';
 
-const samples = [
-  ['Có yêu cầu phí', 'Tuyển nhân viên hỗ trợ khách hàng. Ứng viên cần nộp phí hồ sơ trước khi nhận việc.'],
-  ['Phủ định thu phí', 'Ứng viên không cần đóng phí hồ sơ trước khi nhận việc.'],
-  ['Tin không khớp mẫu', 'Tuyển nhân viên bán hàng bán thời gian. Phỏng vấn trực tiếp tại cửa hàng.'],
-];
+const feedbackForm = {
+  formUrl: import.meta.env.VITE_FEEDBACK_FORM_URL,
+  labelEntry: import.meta.env.VITE_FEEDBACK_LABEL_ENTRY,
+  codesEntry: import.meta.env.VITE_FEEDBACK_CODES_ENTRY,
+};
+
+function feedbackUrl(label, findings, { formUrl, labelEntry, codesEntry }) {
+  if (!['suspicious', 'not_detected'].includes(label)) return null;
+  if (!/^entry\.\d+$/.test(labelEntry) ||
+      !/^entry\.\d+$/.test(codesEntry) ||
+      labelEntry === codesEntry) return null;
+
+  const url = URL.canParse(formUrl) ? new URL(formUrl) : null;
+  if (url?.origin !== 'https://docs.google.com' ||
+      url.username || url.password ||
+      !/^\/forms\/d\/e\/[\w-]+\/viewform$/.test(url.pathname)) return null;
+
+  const codes = ['G01', 'G02', 'G03', 'G04', 'G05', 'G06', 'G07', 'G08'].filter(code =>
+    findings.some(finding => finding.code === code)
+  );
+
+  url.search = new URLSearchParams({
+    [labelEntry]: label === 'suspicious' ? 'Đáng ngờ' : 'Chưa phát hiện',
+    [codesEntry]: codes.join(', ') || 'Không có mã dấu hiệu',
+  }).toString();
+  url.hash = '';
+  return url.href;
+}
+
+function validAnalysis(result, text) {
+  if (!['suspicious', 'not_detected'].includes(result?.label) ||
+      !Array.isArray(result.sentences) || !Array.isArray(result.findings) ||
+      (result.label === 'suspicious') !== (result.findings.length > 0)) return false;
+
+  const ids = new Set();
+  let previousEnd = 0;
+  for (const sentence of result.sentences) {
+    if (!sentence || typeof sentence.id !== 'string' || !sentence.id || ids.has(sentence.id) ||
+        !Number.isInteger(sentence.start) || !Number.isInteger(sentence.end) ||
+        sentence.start < previousEnd || sentence.end <= sentence.start || sentence.end > text.length ||
+        text.slice(sentence.start, sentence.end) !== sentence.text) return false;
+    ids.add(sentence.id);
+    previousEnd = sentence.end;
+  }
+  return ids.size > 0 && result.findings.every(finding =>
+    typeof finding?.code === 'string' && Array.isArray(finding.evidenceSentenceIds) &&
+    finding.evidenceSentenceIds.length > 0 && finding.evidenceSentenceIds.every(id => ids.has(id)));
+}
 
 export default function App() {
+  const [screen, setScreen] = useState('home');
   const [text, setText] = useState('');
-  const [result, setResult] = useState(null);
+  const [caseTitle, setCaseTitle] = useState('');
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState(null);
+  const main = useRef(null);
+  const previousScreen = useRef(screen);
+  const pending = useRef(false);
 
-  function updateText(value) {
-    setText(value);
-    setResult(null);
+  useLayoutEffect(() => {
+    if (screen === previousScreen.current) return;
+    previousScreen.current = screen;
+    main.current.focus({ preventScroll: true });
+    window.scrollTo(0, 0);
+  }, [screen]);
+
+  function openInput(sample = '', title = '') {
+    setCaseTitle(title);
+    setText(sample);
     setError('');
+    setResult(null);
+    setScreen('input');
   }
 
   async function analyze(event) {
     event.preventDefault();
-    setResult(null);
+    if (!text.trim() || pending.current) return;
+    pending.current = true;
     setError('');
-    if (!text.trim()) {
-      setError('Bạn hãy nhập nội dung tin tuyển dụng trước khi phân tích.');
-      return;
-    }
-
-    setLoading(true);
+    setScreen('loading');
     try {
       const response = await fetch('/api/analyze', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text }),
-        signal: AbortSignal.timeout(15000),
+        signal: AbortSignal.timeout(150000),
       });
-      const data = await response.json();
-      if (!response.ok) {
-        throw new Error(data.title || 'Không thể phân tích. Vui lòng thử lại.');
-      }
-      setResult(data);
+      if (!response.ok) throw new Error('Chưa thể phân tích nội dung. Bạn có thể thử lại.');
+      const analysis = await response.json();
+      if (!validAnalysis(analysis, text)) throw new Error('Dịch vụ trả về kết quả không hợp lệ.');
+      setResult(analysis);
+      setScreen('result');
     } catch (cause) {
-      setError(cause.name === 'TimeoutError'
-        ? 'Yêu cầu quá thời gian chờ. Vui lòng thử lại.'
-        : cause instanceof TypeError || cause instanceof SyntaxError
-          ? 'Không kết nối được hệ thống. Vui lòng kiểm tra các dịch vụ đang chạy.'
-          : cause.message);
+      const message = cause.name === 'TimeoutError' ? 'Dịch vụ phản hồi quá lâu. Bạn có thể thử lại.'
+        : cause instanceof TypeError || cause instanceof SyntaxError ? 'Chưa nhận được kết quả từ dịch vụ. Bạn có thể thử lại.'
+        : cause.message;
+      setError(message);
+      setScreen('input');
     } finally {
-      setLoading(false);
+      pending.current = false;
     }
   }
 
+  const feedbackHref = result && feedbackUrl(result.label, result.findings, feedbackForm);
   return (
-    <div className="app">
-      <header className="header">
-        <a className="brand" href="/" aria-label="JobShield — Trang chủ">
-          <svg viewBox="0 0 32 36" fill="none" aria-hidden="true">
-            <path d="M16 2 29 7v10c0 8-6 13-13 17C9 30 3 25 3 17V7L16 2Z" stroke="currentColor" strokeWidth="2.5" />
-            <path d="m10 17 4 4 8-9" stroke="currentColor" strokeWidth="2.5" />
-          </svg>
-          JobShield<span className="brand-dot">.</span>
-        </a>
-        <span className="checkpoint">W03 / HELLO WORLD</span>
-      </header>
-
-      <main>
-        <section className="intro">
-          <p className="eyebrow">THÊM MỘT BƯỚC KIỂM TRA TRƯỚC KHI ỨNG TUYỂN</p>
-          <h1>Đọc kỹ tin tuyển dụng.<br /><span>Nhìn rõ dấu hiệu.</span></h1>
-          <p className="intro-copy">Dán nội dung tin để kiểm tra yêu cầu phí trước khi nhận việc và xem đoạn văn bản khớp quy tắc.</p>
-        </section>
-
-        <div className="workspace">
-          <section className="panel input-panel" aria-labelledby="input-title">
-            <div className="panel-heading"><span className="step">01</span><h2 id="input-title">Nội dung cần kiểm tra</h2></div>
-            <form onSubmit={analyze} noValidate>
-              <label htmlFor="recruitment-text">Tin tuyển dụng</label>
-              <textarea id="recruitment-text" value={text} disabled={loading}
-                onChange={event => updateText(event.target.value)}
-                aria-describedby="input-help" aria-invalid={Boolean(error)}
-                placeholder="Dán hoặc nhập nội dung tin tuyển dụng tại đây…" />
-              <div className="field-meta"><span id="input-help">Nội dung chỉ được xử lý cho yêu cầu này.</span><span>{text.length} ký tự</span></div>
-              <p className="sample-label">Thử nhanh với nội dung mẫu</p>
-              <div className="samples">{samples.map(([label, value]) => (
-                <button type="button" key={label} disabled={loading} onClick={() => updateText(value)}>{label}</button>
-              ))}</div>
-              <button className="submit" type="submit" disabled={loading}>
-                {loading ? 'Đang phân tích…' : 'Phân tích nội dung'}<span aria-hidden="true">→</span>
-              </button>
-              {error && <p className="error" role="alert">{error}</p>}
-            </form>
-          </section>
-
-          <section className="panel result-panel" aria-labelledby="result-title" aria-busy={loading}>
-            <div className="panel-heading"><span className="step">02</span><h2 id="result-title">Kết quả phân tích</h2></div>
-            <div aria-live="polite" aria-atomic="true">
-              {loading ? <div className="empty"><span className="status-icon">…</span><h3>Đang kiểm tra nội dung</h3><p>Vui lòng chờ kết quả phân tích.</p></div>
-                : result ? <div className="result">
-                  <span className={result.signals.length ? 'badge detected' : 'badge neutral'}>{result.signals.length ? 'CÓ DẤU HIỆU KHỚP QUY TẮC' : 'CHƯA PHÁT HIỆN THEO QUY TẮC'}</span>
-                  <h3>{result.message}</h3>
-                  {result.signals.map((signal, index) => <article className="signal" key={index}>
-                    <h4>{signal.name}</h4><p className="quote-label">Đoạn trích trong nội dung bạn gửi</p>
-                    <blockquote>{signal.evidence}</blockquote>
-                  </article>)}
-                  {!result.signals.length && <p className="result-note">Kết quả này không bảo đảm tin tuyển dụng an toàn. Bạn nên tiếp tục kiểm tra thông tin nhà tuyển dụng.</p>}
-                  <p className="version">Bộ xử lý: {result.baseline_version}</p>
-                </div>
-                  : <div className="empty"><span className="status-icon" aria-hidden="true">⌕</span><h3>{error ? 'Chưa có kết quả phân tích' : 'Sẵn sàng kiểm tra'}</h3><p>{error ? 'Hãy xử lý lỗi ở phần nhập và thử lại.' : 'Nhập nội dung hoặc chọn một mẫu bên trái, sau đó bấm phân tích.'}</p></div>}
-            </div>
-          </section>
+    <>
+      <a href="#content" className="skip-link">Đến nội dung chính</a>
+      <header className={screen === 'home' ? 'site-header' : 'site-header story-header'}>
+        <div className="header-inner">
+          <button className="brand" type="button" disabled={screen === 'loading'}
+            onClick={() => setScreen('home')} aria-label="JobShield — Trang chủ">
+            <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M8 3H4v4m12-4h4v4M4 17v4h4m8 0h4v-4"/><circle cx="11" cy="11" r="4"/><path d="m14 14 4 4"/></svg> JobShield
+          </button>
+          {screen === 'home' ? (
+            <button className="header-action" type="button" onClick={() => openInput()}>Vào công cụ <span aria-hidden="true">↗</span></button>
+          ) : (
+            <div className="story-progress" aria-label="Tiến trình kiểm tra"><div aria-hidden="true">{['input', 'loading', 'result'].map((s, i, all) => <i key={s} data-lit={i <= all.indexOf(screen)} />)}</div>{({input: 'Hồ sơ đến tay', loading: 'Đang điều tra', result: 'Bảng manh mối'})[screen]}</div>
+          )}
         </div>
-
-        <aside className="scope"><span className="scope-label">PHẠM VI BẢN KHỞI ĐỘNG</span><p>Baseline kiểm tra hai mẫu yêu cầu nộp/đóng phí hồ sơ trước khi nhận việc và loại trừ phủ định đơn giản. Có thể bỏ sót hoặc nhận sai ngữ cảnh; kết quả hỗ trợ bạn xem xét nội dung.</p></aside>
+      </header>
+      <main id="content" tabIndex={-1} ref={main}>
+        {screen === 'home' && <HomePage onStart={openInput} />}
+        {screen === 'input' && (
+          <section className="entry page-shell">
+            <h1>Hồ sơ đến tay</h1><div className="case-desk"><aside className="desk-note">Ghi chú của Soi<strong>{caseTitle ? 'Hồ sơ đã đến. Bạn kiểm tra lại nội dung nhé.' : 'Dán hồ sơ lên tờ giấy này để tôi xem nhé.'}</strong></aside>
+            <form onSubmit={analyze}>
+              <label htmlFor="input">{caseTitle || 'Tin tuyển dụng hoặc đoạn hội thoại'}</label>
+              <p id="input-hint">Nội dung có thể được gửi đến Groq để tách câu (hoặc tự động tách cục bộ khi dự phòng). Hãy che thông tin cá nhân trước khi gửi.</p>
+              <textarea id="input" value={text} aria-describedby="input-hint" autoComplete="off"
+                placeholder="Dán nội dung vào đây…" onChange={event => { setText(event.target.value); setError(''); }} />
+              {error && <p className="input-error" role="alert">{error}</p>}
+              <div className="entry-actions">
+                <button className="secondary" type="button" onClick={() => setScreen('home')}>Về trang chủ</button>
+                <button className="primary" disabled={!text.trim()}>{error ? 'Thử lại' : 'Kiểm tra'} <span aria-hidden="true">→</span></button>
+              </div>
+            </form></div>
+          </section>
+        )}
+        {screen === 'loading' && <DetectiveLoading text={text} />}
+        {screen === 'result' && (
+          <div className="page-shell result-page">
+            <ResultTree caseTitle={caseTitle} text={text} label={result.label}
+              findings={result.findings} sentences={result.sentences}
+              explanations={result.explanations} cases={result.cases} possibleNextSteps={result.possibleNextSteps} />
+            <div className="result-actions">
+              <button type="button" className="primary" onClick={() => openInput()}>Kiểm tra nội dung khác</button>
+              {feedbackHref && <a href={feedbackHref} target="_blank" rel="noopener noreferrer">Góp ý kết quả ↗</a>}
+            </div>
+          </div>
+        )}
       </main>
-      <footer><span>JobShield · Đồ án chuyên ngành</span><span>React → ASP.NET Core → FastAPI</span></footer>
-    </div>
+    </>
   );
 }

@@ -1,0 +1,10 @@
+.loading-case { max-width:768px; padding:2rem 0; }
+.loading-case h1 { font-size:clamp(1.75rem,4vw,2.4rem); }
+.loading-desk { display:grid; grid-template-columns:minmax(82px, .55fr) 1fr; align-items:center; gap:clamp(12px,3vw,30px); }
+.loading-desk .soi-figure { display:block; margin:auto; animation:soi-read 2.4s ease-in-out infinite; }
+.loading-desk .soi-glass { transform-origin:103px 114px; animation:soi-glass 1.8s ease-in-out infinite alternate; }
+.loading-file { background:#f3eee0; color:#10264a; box-shadow:4px 4px #d6cdb9,8px 8px #a89d88,0 12px 25px #0008; border-radius:3px; padding:clamp(12px,3vw,28px); height:clamp(200px,27vw,300px); overflow:hidden; transform:rotate(2deg); }
+.loading-file small { font:700 .66rem monospace; letter-spacing:.13em; }
+.loading-file p { white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.8; }
+@keyframes soi-read { 50% { transform:translateY(-5px) rotate(1deg); } }
+@keyframes soi-glass { to { transform:rotate(-13deg); } }
