@@ -1,0 +1,54 @@
+services:
+  ai:
+    build:
+      context: ./services/ai
+    environment:
+      JOBSHIELD_MODEL_DIR: /app/models/v3/jobshield-phobert-v3-typeA
+      JOBSHIELD_VNCORENLP_DIR: /app/models/vncorenlp
+    volumes:
+      - ./models:/app/models:ro
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:8001/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 45s
+    networks:
+      - jobshield-net
+
+  backend:
+    build:
+      context: ./backend
+    depends_on:
+      ai:
+        condition: service_healthy
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      AiService__BaseUrl: http://ai:8001/
+      Groq__ApiKey: ${GROQ_API_KEY:-}
+      Groq__Model: ${GROQ_MODEL:-openai/gpt-oss-20b}
+      RateLimiting__PermitLimit: ${RATE_LIMIT_PERMIT:-20}
+      RateLimiting__WindowSeconds: ${RATE_LIMIT_WINDOW_SECONDS:-60}
+    healthcheck:
+      test: ["CMD", "bash", "-c", "exec 3<>/dev/tcp/127.0.0.1/5000"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 10s
+    networks:
+      - jobshield-net
+
+  frontend:
+    build:
+      context: ./frontend
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:5173:80"
+    networks:
+      - jobshield-net
+
+networks:
+  jobshield-net:
+    driver: bridge

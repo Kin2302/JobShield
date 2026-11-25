@@ -32,9 +32,20 @@ coverage/
 /tmp/
 **/bin/
 **/obj/
+backend/.vs/
 .vscode/
 .idea/
 *.log
+*.zip
+services/ai/phobert-v1/
+services/ai/jobshield-phobert-v2-result/
+services/ai/.env
+frontend/.env.local
 ~$*
 .DS_Store
 Thumbs.db
+
+# Local data-collection tools and agent workflows (kept locally, excluded from product repo)
+/docs/workflows/
+/tools/
+/scripts/crawl-sources/

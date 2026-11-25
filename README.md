@@ -2,162 +2,105 @@
 
 Công cụ hỗ trợ sinh viên nhận diện dấu hiệu đáng ngờ trong tin tuyển dụng tiếng Việt bằng phân loại văn bản có giải thích.
 
-**Trạng thái:** Đã có bản Hello World W03 chạy local từ React qua ASP.NET Core đến FastAPI và trả kết quả về giao diện. Bộ xử lý hiện là baseline quy tắc; chưa fine-tune PhoBERT, chưa triển khai database hoặc có kết quả thực nghiệm mô hình.
+**Trạng thái** — Ứng dụng chạy toàn luồng **React → ASP.NET Core (.NET 10) → FastAPI (`phobert-v3-typeA`)** theo khung 8 nhóm hành vi lõi `G01`–`G08` ([Codebook v3](../data/v3/CODEBOOK.md)). ASP.NET Core hỗ trợ tách câu qua Groq (`openai/gpt-oss-20b`, timeout 10s) và tự động chuyển sang bộ tách câu dự phòng cục bộ (`LocalSentenceSplitter`) khi thiếu khóa, quá thời gian hoặc gặp giới hạn tốc độ; kết quả phân tích gắn giải thích và vụ việc tham chiếu từ [RecruitmentScenarios.json](backend/JobShield.Infrastructure/RecruitmentScenarios.json).
 
-## Chạy toàn bộ demo
+## Vấn đề đang theo dõi
 
-Môi trường đã kiểm tra: **.NET SDK 10.0.302**, **Node.js 22.23.1 / npm 10.9.8**, **Python 3.14.2**, Windows PowerShell. Backend dùng `net10.0` và phiên bản C# mặc định của SDK, không cần cài package NuGet ngoài shared framework. React và Vite được ghim phiên bản trong `package.json`/`package-lock.json`.
+- **Qwen gán vai người nói (`speaker`) lệch đáp án — đang mở, tạm hoãn.** Lượt đo trực tiếp với `qwen/qwen3.8-27b` sau khi thêm hai ví dụ vào prompt nhận được 15 phản hồi trên 30 mẫu. Cả 15 giữ nguyên văn và khớp ranh giới câu. Có 5 mẫu lệch vai: `JS-TR006`, `JS-TR008`, `JS-TR014`, `JS-TR024`, `JS-TR029`. Ví dụ, ở `JS-TR029` cả bốn câu đều được gán `unknown`, trong khi đáp án lần lượt là `recruiter`, `recruiter`, `applicant`, `recruiter`. Khi xử lý lại, đối chiếu quy ước tin đăng thiếu căn cứ nhận diện dùng `unknown` với nhãn trong [bộ 30 mẫu](backend/JobShield.Tests/Evaluation/Data/jobshield-test-30.jsonl). 15 yêu cầu gặp HTTP 429 được loại khỏi phép chấm vai.
 
-Clone repo rồi chạy các lệnh sau từ gốc `JobShield`:
+## Phiên bản nghiên cứu
+
+| Phiên bản | Dataset và codebook | PhoBERT |
+| --- | --- | --- |
+| v1 (trước đây là v3, codebook v0.3) | [Dataset](../data/v1/README.md) · [Codebook](../data/v1/CODEBOOK.md) | [Checkpoint theo câu](services/ai/phobert-v1/checkpoint/) · [Notebook Kaggle](services/ai/train_phobert_v1_kaggle.ipynb) · [Gói train/validation](../data/v1/jobshield-v1-train-val.zip) |
+| v2 (trước đây là v4, codebook v0.4) | [Dataset](../data/v2/README.md) · [Codebook](../data/v2/CODEBOOK.md) | [Checkpoint theo câu](services/ai/jobshield-phobert-v2-result/checkpoint/) · [Notebook Colab](services/ai/train_phobert_v2_colab.ipynb) · [Kết quả validation](services/ai/jobshield-phobert-v2-result/validation.json) |
+| **v3 (hiện hành, khung `G01`–`G08`)** | [Dataset](../data/v3/README.md) · [Codebook](../data/v3/CODEBOOK.md) | `phobert-v3-typeA` (`models/v3/jobshield-phobert-v3-typeA/`) · [Notebook Colab](services/ai/notebooks/train_phobert_v3_typeA_colab.ipynb) · [Báo cáo đánh giá](tests/evaluation/v3-model-comparison/REPORT.md) |
+
+Minh chứng tuần đã chốt dùng tên tại thời điểm thực hiện. Checkpoint phân loại nhị phân trong hướng dẫn API bên dưới phục vụ chế độ demo riêng.
+
+## Chạy ứng dụng JobShield v3 (`phobert-v3-typeA`)
+
+### Cách 1 — Chạy bằng Docker Compose (khuyến nghị)
+
+Chuẩn bị sẵn Docker Desktop và thư mục `models/` (`models/vncorenlp/` và `models/v3/jobshield-phobert-v3-typeA/`). Tạo tệp `.env` từ `.env.example` nếu muốn cấu hình khóa Groq (tùy chọn — nếu để trống, Backend tự chuyển sang `LocalSentenceSplitter`):
 
 ```powershell
-git clone https://github.com/Kin2302/JobShield.git
-cd JobShield
-python -m venv services/ai/.venv
-.\services\ai\.venv\Scripts\python.exe -m pip install -r services/ai/requirements.txt
-dotnet build backend -c Release
+Copy-Item .env.example .env
+docker compose up --build -d
+```
+
+Mở [JobShield local](http://127.0.0.1:5173). Nginx chỉ mở duy nhất cổng `5173` ra máy host, gắn HTTP Security Headers và chuyển tiếp `/api/*` tới ASP.NET Core (`backend`) → FastAPI `phobert-v3-typeA` (`ai`) trong mạng nội bộ Docker (`models/` được gắn chỉ đọc). Dừng cụm dịch vụ bằng `docker compose down`.
+
+### Cách 2 — Chạy trực tiếp trên máy (Dev)
+
+Chuẩn bị sẵn JDK 21 (cho `VnCoreNLP`), `models/vncorenlp/` và checkpoint `models/v3/jobshield-phobert-v3-typeA/`. Khóa `Groq:ApiKey` trong User Secrets là tùy chọn (nếu thiếu hoặc lỗi, Backend tự chuyển sang `LocalSentenceSplitter`).
+
+```powershell
+dotnet build backend/JobShield.slnx -c Release
 npm --prefix frontend ci
 npm --prefix frontend run build
 powershell -NoProfile -File scripts/start-demo.ps1
 ```
 
-Mở **[JobShield local](http://127.0.0.1:5173)**. Script chạy ba dịch vụ nền và kiểm tra HTTP toàn luồng trước khi thông báo sẵn sàng. Những lần sau không cần cài lại; sau khi sửa code phải build lại phần tương ứng.
+Mở [JobShield local](http://127.0.0.1:5173). Vite chuyển `POST /api/analyze` đến ASP.NET Core ở cổng 5000, tách câu qua Groq hoặc cục bộ, rồi gọi FastAPI `phobert-v3-typeA` ở cổng 8001 (`GET /health`, `POST /analyze`).
 
-| Thành phần | Địa chỉ | Vai trò |
-| --- | --- | --- |
-| React / Vite preview | `http://127.0.0.1:5173` | Phục vụ bản frontend đã build; proxy `/api` sang ASP.NET Core. |
-| ASP.NET Core | `http://127.0.0.1:5000/api/analyze` | Kiểm tra request và gọi FastAPI bằng named `HttpClient`. |
-| FastAPI | `http://127.0.0.1:8001/analyze` | Chạy baseline; Swagger ở `/docs`. |
-
-Luồng: **trình duyệt → Vite proxy → ASP.NET Core → FastAPI → ASP.NET Core → giao diện**. Proxy giữ request cùng origin với frontend; trình duyệt không gọi thẳng FastAPI. Vite preview phục vụ demo local, chưa phải phương án hosting production.
-
-Dừng các dịch vụ do script khởi chạy:
+Kiểm thử toàn bộ và dừng dịch vụ:
 
 ```powershell
+dotnet test backend/JobShield.slnx -c Release
+Push-Location services/ai; .\.venv\Scripts\python.exe -m pytest tests -q; Pop-Location
+.\services\ai\.venv\Scripts\python.exe -m pytest tests/test_demo.py -q
 powershell -NoProfile -File scripts/stop-demo.ps1
 ```
 
-Log và danh sách tiến trình nằm trong `tmp/hello-world/`, được loại khỏi Git. Nếu cổng 5000, 5173 hoặc 8001 đang dùng, script sẽ báo lỗi và giữ dịch vụ có sẵn. Nếu demo đã chạy thì mở trình duyệt, hoặc dừng bằng script trước khi khởi chạy lại.
+Log của các dịch vụ khi chạy trực tiếp nằm trong `tmp/hello-world/`.
 
-### Kiểm tra và quay minh chứng
+## Bảo mật, Yêu cầu phi chức năng (NFR) & CI
 
-Sau khi bật demo, chạy từ gốc repo:
+- **Bảo mật (4 lớp):**
+  1. **Rate Limiting & Input Guard:** `POST /api/analyze` giới hạn `20 req/phút` theo IP (cấu hình qua `RateLimiting:PermitLimit`), body `≤ 32 KB`, `text ≤ 10.000` ký tự, chặn ký tự `\0`; FastAPI giới hạn `1–150` câu và `≤ 2.000` ký tự/câu.
+  2. **Che PII & Quản lý Secrets:** `PiiRedactor` che SĐT, CCCD 12 số và email cùng độ dài trước khi gửi sang Groq; không ghi nội dung tin hay khóa vào log; khóa chỉ truyền qua `.env` / biến môi trường / User Secrets.
+  3. **Chống Prompt Injection:** Bọc đầu vào bằng `<user_text>...</user_text>`, ép JSON Schema và hậu kiểm nguyên văn (`SentencePreparation.Prepare`); nếu đầu ra lệch, tự động fallback sang `LocalSentenceSplitter`.
+  4. **HTTP Security Headers & Phân đoạn mạng:** Gắn `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`, `Content-Security-Policy`; Docker chỉ mở cổng Frontend `5173`.
+- **5 NFR mục tiêu:** Độ trễ CPU `p50 ≤ 800 ms`, `p95 ≤ 2.000 ms`; Test v3 `F1 ≥ 0,85`, `Recall ≥ 0,85`, Holdout báo động giả `≤ 5%`; Tỉ lệ lỗi `5xx = 0%`; Chi phí LLM `≤ $0,10 / 1.000` truy vấn (`$0` khi chạy cục bộ); RAM container AI `≤ 2,5 GB` và chặn `100%` request vi phạm giới hạn.
+- **CI (GitHub Actions):** Workflow [.github/workflows/ci.yml](.github/workflows/ci.yml) tự chạy `dotnet test`, `pytest` và `npm run build` trên mỗi lần `push` / `pull_request`.
+
+## Chuẩn bị nội dung với Groq
+
+Lưu khóa Groq với tên `Groq:ApiKey` trong **.NET User Secrets** của `backend/JobShield.Api/JobShield.Api.csproj`. Trong Visual Studio, dùng **Manage User Secrets** trên project backend. Script demo và cấu hình chạy backend dùng môi trường `Development` để đọc User Secrets.
+
+Chọn ô gửi nội dung tới Groq trên màn nhập khi dùng nội dung mô phỏng hoặc đã che thông tin. Agent gợi ý đoạn, loại nội dung và người nói. Người dùng xác nhận hoặc chỉnh lại trước khi phân tích. Khi thiếu khóa, Groq lỗi hoặc kết quả không khớp văn bản gốc, màn xác nhận dùng bản tách theo dòng.
+
+Model mặc định là `openai/gpt-oss-20b`. Có thể cấu hình model khác hỗ trợ JSON Schema bằng biến môi trường `Groq__Model`.
+
+## Thu phản hồi kết quả
+
+Để hiện **Góp ý kết quả** dưới cây, tạo `frontend/.env.local` với cấu hình Google Form của dự án:
+
+```dotenv
+VITE_FEEDBACK_FORM_URL=https://docs.google.com/forms/d/e/1FAIpQLScgWnou80tFS7-RvhsjoS_fWp9rikE68QO-RJFGsgTLKDpk3g/viewform
+VITE_FEEDBACK_LABEL_ENTRY=entry.1496633354
+VITE_FEEDBACK_CODES_ENTRY=entry.1380967390
+```
+
+Khởi động lại Vite hoặc build lại frontend sau khi đổi cấu hình. Nếu thay Form, dùng chức năng **Mẫu điền sẵn** trong Google Forms để lấy URL người trả lời và hai mã `entry.*` tương ứng. Khi thiếu cấu hình hoặc URL sai, liên kết góp ý được ẩn.
+
+Form mở ở tab mới với nhãn tổng và mã dấu hiệu đã điền sẵn. Người dùng tự gửi phản hồi vào Sheet liên kết. Các trường điền sẵn có thể chỉnh, nên dùng phản hồi để rà soát pilot.
+
+## Chạy API với PhoBERT
+
+Giải nén thư mục `checkpoint` từ tệp Colab. Chuẩn bị Java và bộ tách từ VnCoreNLP gồm `VnCoreNLP-1.2.jar` cùng hai tệp `vi-vocab`, `wordsegmenter.rdr` trong `models/wordsegmenter/`. Đặt `JAVA_HOME` tới thư mục Java dùng để chạy VnCoreNLP.
+
+Từ gốc repo, cài `services/ai/requirements-phobert.txt` vào môi trường Python riêng. Ví dụ dưới đây dùng checkpoint và bộ tách từ đã chuẩn bị trong `tmp/w05-phobert`:
 
 ```powershell
-# 10 ca HTTP qua frontend proxy va ca hai backend
-.\services\ai\.venv\Scripts\python.exe -m pytest tests -q
-
-# 20 ca API FastAPI
-Push-Location services/ai
-.\.venv\Scripts\python.exe -m pytest tests -q
-Pop-Location
+$env:JOBSHIELD_MODEL_TYPE = 'phobert'
+$env:JOBSHIELD_PHOBERT_CHECKPOINT = (Resolve-Path tmp/w05-phobert/checkpoint).Path
+$env:JOBSHIELD_VNCORENLP_DIR = (Resolve-Path tmp/w05-phobert/vncorenlp).Path
+.\tmp\w05-phobert\.venv\Scripts\python.exe -m uvicorn main:app --app-dir services/ai --host 127.0.0.1 --port 8001
 ```
 
-Đã kiểm tra 30 ca tự động, build cả backend/frontend và thao tác trên giao diện. Đã thử riêng các lỗi FastAPI mất kết nối (`503`), quá thời gian 10 giây (`504`), HTTP lỗi hoặc dữ liệu không hợp lệ (`502`). Lỗi không được biến thành kết quả “chưa phát hiện”. Backend trả `400` cho request rỗng/sai kiểu; FastAPI trả `422` khi được gọi trực tiếp với dữ liệu không hợp lệ.
-
-Gợi ý video 30–60 giây:
-
-1. Mở giao diện, chọn **Có yêu cầu phí** → **Phân tích nội dung**; chỉ đoạn trích khớp.
-2. Chọn **Phủ định thu phí**, phân tích lại; kết quả chưa phát hiện theo quy tắc hiện có.
-3. Chọn **Tin không khớp mẫu**, phân tích; nhắc đây là baseline hẹp, chưa phải mô hình đã huấn luyện.
-
-**[Thư mục video minh chứng W03 trên Google Drive](https://drive.google.com/drive/folders/1GIJ9cVqN9fyTKCgzU2EjFt-gwvon8sb3?usp=sharing)** — người thực hiện sẽ upload video sau khi quay; repo chưa xác nhận video đã được tải lên hoặc quyền xem thư mục.
-
-### Bản đồ code Hello World
-
-| File | Trách nhiệm |
-| --- | --- |
-| [App.jsx](frontend/src/App.jsx) | Trạng thái ô nhập, gọi API bằng `fetch`, hiển thị chờ/kết quả/lỗi; xóa kết quả cũ khi thay đầu vào. |
-| [styles.css](frontend/src/styles.css) | Bố cục hai cột, chuyển một cột trên màn hình hẹp; màu sắc và trạng thái focus. |
-| [vite.config.js](frontend/vite.config.js) | Cổng frontend và proxy dùng khi phát triển hoặc preview bản build. |
-| [Program.cs](backend/Program.cs) | Đăng ký `HttpClient`, endpoint `/api/analyze`, kiểm tra request/response và xử lý lỗi AI. |
-| [AnalysisContracts.cs](backend/AnalysisContracts.cs) | Các record request/response và ánh xạ `baseline_version` từ JSON. |
-| [appsettings.json](backend/appsettings.json) | URL FastAPI; có thể ghi đè bằng biến môi trường `AiService__BaseUrl`. |
-| [main.py](services/ai/main.py), [baseline.py](services/ai/baseline.py) | API nhận diện và hai mẫu quy tắc được mô tả bên dưới. |
-| [test_demo.py](tests/test_demo.py) | Kiểm tra bản build và request qua đủ các dịch vụ đang chạy. |
-| [start-demo.ps1](scripts/start-demo.ps1), [stop-demo.ps1](scripts/stop-demo.ps1) | Chạy/dừng dịch vụ local, giữ log trong thư mục tạm. |
-
-`useState` giữ trạng thái giao diện; `fetch` gửi JSON. ASP.NET Core dùng `async/await` khi chờ HTTP và truyền `CancellationToken` khi request bị hủy. DI cấp `IHttpClientFactory`; không thêm service layer cho một endpoint. Các record chỉ mô tả dữ liệu truyền qua API. Không lưu tin đã phân tích vào database, file hoặc browser storage.
-
-## Chạy phần 1 — dịch vụ AI
-
-Yêu cầu: Python 3.14 (phiên bản đã kiểm tra: 3.14.2). Các lệnh PowerShell dưới đây chạy từ gốc repo:
-
-```powershell
-cd services/ai
-python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv\Scripts\python.exe -m uvicorn main:app --host 127.0.0.1 --port 8001
-```
-
-Không cần kích hoạt môi trường ảo; các lệnh gọi trực tiếp Python trong `.venv`.
-Khi đã cài xong, lần sau chỉ cần chạy lệnh Uvicorn. Dừng bằng `Ctrl+C`.
-
-Mở [Swagger UI](http://127.0.0.1:8001/docs), chọn `POST /analyze` → **Try it out**, gửi:
-
-```json
-{"text": "Em cần nộp phí hồ sơ trước khi nhận việc."}
-```
-
-Hoặc mở PowerShell thứ hai:
-
-```powershell
-$body = @{ text = 'Em cần nộp phí hồ sơ trước khi nhận việc.' } | ConvertTo-Json
-Invoke-RestMethod -Method Post -Uri http://127.0.0.1:8001/analyze `
-  -ContentType 'application/json; charset=utf-8' `
-  -Body ([System.Text.Encoding]::UTF8.GetBytes($body)) | ConvertTo-Json -Depth 5
-```
-
-Kết quả:
-
-```json
-{
-  "baseline_version": "rules-v0.1",
-  "message": "Phát hiện dấu hiệu theo quy tắc hiện có.",
-  "signals": [
-    {
-      "code": "UPFRONT_JOB_FEE",
-      "name": "Yêu cầu phí trước khi nhận việc",
-      "evidence": "nộp phí hồ sơ trước khi nhận việc"
-    }
-  ]
-}
-```
-
-Đây là hợp đồng tối thiểu cho checkpoint baseline, chưa phải toàn bộ output AI đã thảo luận. `UPFRONT_JOB_FEE` là mã của quy tắc demo, chưa phải bộ nhãn nghiên cứu đã duyệt. Không trả điểm xác suất hoặc nhãn tổng quát từ mô hình vì chưa có mô hình phân loại.
-
-### Phạm vi đã thống nhất
-
-- Chỉ khớp hai cụm `nộp phí hồ sơ trước khi nhận việc` và `đóng phí hồ sơ trước khi nhận việc`, không phân biệt hoa/thường; các cụm có thể nằm trong một tin dài.
-- Giữ nguyên chữ gốc trong `evidence`. Một lần khớp tạo một mục trong `signals`.
-- Tách câu bằng dấu `.`, `!`, `?` hoặc xuống dòng; bỏ qua cả câu có từ `không`, bao gồm `không cần` và `không phải`. Phủ định ở câu khác không loại trừ câu đang xét.
-- Không ghép các cụm từ qua nhiều câu. Dấu phẩy và dấu chấm phẩy chưa được dùng làm ranh giới câu.
-- Không khớp thì trả `signals: []` và `Chưa phát hiện theo quy tắc hiện có.`; kết quả này không bảo đảm nội dung an toàn.
-- Thiếu `text`, sai kiểu hoặc chỉ có khoảng trắng thì trả HTTP `422`.
-
-Quy tắc còn có thể nhận sai câu hỏi/lời kể chứa nguyên mẫu hoặc bỏ sót câu có từ `không` nhưng vẫn yêu cầu đóng phí. Bản đầu chưa xử lý diễn đạt lại, nhiều khoảng trắng, Unicode tổ hợp hoặc ngữ cảnh phức tạp. Test kiểm chứng hành vi đã chốt, không phải đánh giá chất lượng trên dữ liệu thực tế. Dịch vụ không lưu nội dung phân tích vào database hoặc file.
-
-### Đọc code theo thứ tự
-
-| File | Trách nhiệm |
-| --- | --- |
-| [main.py](services/ai/main.py) | Định nghĩa request/response; kiểm tra `text`; khai báo `POST /analyze`; gọi baseline và đóng gói kết quả. |
-| [baseline.py](services/ai/baseline.py) | Hàm `find_fee_evidence`: tách câu, loại trừ phủ định, tìm hai mẫu và trả đoạn trích nguyên văn. |
-| [test_analyze.py](services/ai/tests/test_analyze.py) | Gửi request qua TestClient và kiểm tra hành vi API, không mock baseline. |
-| [requirements.txt](services/ai/requirements.txt) | Cố định phiên bản thư viện trực tiếp đã dùng. |
-
-Luồng: JSON → `AnalyzeRequest` → `analyze()` → `find_fee_evidence()` → danh sách `Signal` → `AnalyzeResponse` → JSON.
-
-FastAPI khai báo API; Pydantic (dependency của FastAPI) kiểm tra dữ liệu và định nghĩa schema; Uvicorn chạy HTTP server. `re` là thư viện có sẵn của Python để tìm mẫu trong chuỗi. Pytest chạy test; HTTPX phục vụ TestClient theo [hướng dẫn FastAPI](https://fastapi.tiangolo.com/tutorial/testing/). TestClient chạy ứng dụng trong tiến trình test, không cần bật Uvicorn.
-
-Chạy test từ `services/ai`:
-
-```powershell
-.\.venv\Scripts\python.exe -m pytest tests -q
-.\.venv\Scripts\python.exe -m pip check
-```
-
-Bộ dependency hiện có cảnh báo từ Starlette rằng TestClient sẽ chuyển từ `httpx` sang `httpx2`; không tắt cảnh báo. Phiên bản đã ghim vẫn chạy test được. Khi nâng thư viện cần kiểm tra lại tương thích. Trong sandbox của Codex trên máy này, vòng lặp mạng của Python có thể bị treo; đã chạy test và HTTP smoke test ngoài sandbox để kiểm chứng, không thêm workaround vào code sản phẩm.
+Trong terminal thứ hai, chạy `dotnet run --project backend --launch-profile http` và gửi `POST /api/analyze` với JSON `{"text":"Nội dung cần phân tích"}`. Log FastAPI ghi đường dẫn checkpoint đã nạp. Chế độ mặc định của script demo phía trên là TF-IDF, dùng `JOBSHIELD_MODEL_PATH`.
 
 ## Đề tài
 
@@ -196,13 +139,12 @@ Hai bộ tin phải có tỷ lệ tin đáng ngờ và độ khó tương đươ
 
 Pilot dự kiến với ít nhất 20 sinh viên trong 4–6 tuần; chưa có xác nhận của người đại diện. Phạm vi hiện tại không bao gồm tự động thu thập tin trên mạng xã hội, kết luận pháp lý về doanh nghiệp hoặc ứng dụng mobile.
 
-## Tiến độ W01
+## Đóng băng tính năng `v0.9`
 
-- Đã xác định vấn đề, CH1–CH2 và H1–H2 theo định hướng GVHD.
-- Đã chuẩn bị bản nháp Chương 1 và nhật ký tuần, nhật ký AI ở bộ hồ sơ nộp học phần.
-- Chưa triển khai mã nguồn ứng dụng, gán nhãn dữ liệu hoặc đánh giá mô hình.
-- Chưa có demo hoạt động; sẽ cập nhật đường dẫn sau khi triển khai và kiểm tra.
+Từ Tuần 7, sản phẩm chốt phạm vi và không bổ sung tính năng mới cho mốc `v0.9`:
 
-## Sử dụng AI
-
-Có sử dụng Codex để hỗ trợ làm rõ yêu cầu và soạn tài liệu ban đầu. Sinh viên cần kiểm tra, chỉnh sửa và khai báo các lượt sử dụng trong nhật ký AI. Các số đo, phỏng vấn và minh chứng chỉ được cập nhật khi đã thực hiện thực tế.
+1. **Phân tích tin tuyển dụng & hội thoại:** Toàn luồng React → ASP.NET Core (.NET 10) → FastAPI (`phobert-v3-typeA`), nhận diện 8 nhóm dấu hiệu `G01`–`G08` có câu bằng chứng (`<mark>`), giải thích và vụ việc tham chiếu (`RecruitmentScenarios.json`).
+2. **Tách câu linh hoạt:** Hỗ trợ Groq (`openai/gpt-oss-20b`) và tự động chuyển sang bộ tách câu cục bộ (`LocalSentenceSplitter`) khi thiếu khóa, quá hạn hoặc lỗi kết nối.
+3. **Trải nghiệm UX Thám tử Shield:** Giao diện 4 chặng kể chuyện, 4 biểu cảm dõi chuột, nút đáp nhanh theo ngữ cảnh, bấm ghim `G01`–`G08` cuộn tới câu bằng chứng và tùy chọn góp ý kết quả qua Google Form.
+4. **4 lớp bảo mật:** Rate Limiting (`20 req/phút`) & Input Guard (`≤ 10.000` ký tự, chặn `\0`, body `≤ 32 KB`); che PII giữ độ dài (`PiiRedactor`) & quản lý bí mật ngoài repo; chống Prompt Injection (`<user_text>` + hậu kiểm nguyên văn + fallback); 5 HTTP Security Headers không trùng lặp & phân đoạn mạng Docker (chỉ mở cổng `5173`).
+5. **Đóng gói & CI tự động:** Docker Compose 3 container (`ai`, `backend`, `frontend`) chạy demo cục bộ theo hướng dẫn phía trên, cùng GitHub Actions CI (`.github/workflows/ci.yml`) chạy `dotnet test`, `pytest` và `npm run build` trên mỗi lần đẩy mã.
